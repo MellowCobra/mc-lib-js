@@ -1,0 +1,33 @@
+{
+  "name": "@mellow.cobra/lib",
+  "version": "1.0.0",
+  "description": "The MellowCobra Library for JavaScript is a collection of common methods for standard operations to fill in gaps in the existing standard JS library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "keywords": [
+    "node",
+    "library",
+    "std",
+    "mellowcobra"
+  ],
+  "scripts": {
+    "compile": "npx tsc",
+    "test": "jest"
+  },
+  "repository": "git@github.com:MellowCobra/mc-lib-js.git",
+  "author": "Grayson Dubois <themellowcobra@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.1",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6",
+    "typescript": "^4.3.5"
+  }
+}

@@ -5,65 +5,63 @@ The MellowCobra Library for JavaScript is a collection of common methods for sta
 - [Util](#util) - A collection of utility methods for checking equality of various values
 - [Arr](#arr) - A collection of methods for arrays
 
-### Util
-___
+## Util
 
 This module contains various utility methods for checking values. They can be used to test equality or validity of data, such as if a value is _exactly_ `true`, or if it is an empty string (and not just `null`).
 
-Many of the methods in this module seem trivial. The intent is to provide explicit checks for values, since type coercion in JavaScript causes the equality to be maddeningly non-apparent and inconsistent.
+Many of the methods in this module are trivial. The intent is to provide explicit checks for values, since type coercion in JavaScript can at times cause equality checks to be maddeningly non-apparent and inconsistent (see [dotJS 2012 - Brian Leroux - WTFJS](https://www.youtube.com/watch?v=et8xNAc2ic8).)
 
 __notNull(any): boolean__
 
 Returns `false` if the input value is _exactly_ `null`. Returns `true` for __all__ other values, including `undefined`.
 
 
-__notFalsy__
+__notFalsy(any): boolean__
 
 Returns `true` if the input value is not considered a "falsy" value.
 
 
-__notFalse__
+__notFalse(any): boolean__
 
 Returns `false` if the input value is _exactly_ `false`. Returns `true` for __all__ other values, including "falsy" ones.
 
 
-__isFalse__
+__isFalse(any): boolean__
 
 Returns `true` if the input value is _exactly_ `false`. Returns `false` for __all__ other values, including "falsy" ones.
 
 
-__notTruthy__
+__notTruthy(any): boolean__
 
 Returns `true` if the input value is not considered a "truthy" value.
 
 
-__notTrue__
+__notTrue(any): boolean__
 
 Returns `false` if the input value is _exactly_ `true`. Returns `true` for __all__ other values, including "truthy" ones.
 
 
-__isTrue__
+__isTrue(any): boolean__
 
 Returns `true` if the input is _exactly_ `true`. Returns `false` for all other values, even "truthy" ones.
 
 
-__isNonEmptyString__
+__isNonEmptyString(any): boolean__
 
 Returns `true` if the input is a string (literal or String instance) containing one or more characters. Returns `false` for all other values.
 
 
-__isEmptyString__
+__isEmptyString(any): boolean__
 
 Returns `true` if the input is a string (literal or String instance) containing 0 characters. Returns `false` for all other values.
 
 
-### Arr
-___
+## Arr
+
+This module contains methods for dealing with arrays.
 
 
-
-
-__lastItem__
+__lastItem<T>(T[]): T__
 
 Returns the last item in an array, or `null` if the array is empty. 
 
@@ -75,7 +73,7 @@ Arr.lastItem([])            // null
 ```
 
 
-__contains__
+__contains<T>(T, T[]): boolean__
 
 Returns true if an array contains a given value. 
 

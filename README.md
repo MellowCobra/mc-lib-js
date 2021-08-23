@@ -61,7 +61,7 @@ Returns `true` if the input is a string (literal or String instance) containing 
 This module contains methods for dealing with arrays.
 
 
-__lastItem<T>(T[]): T__
+__lastItem\<T\>(T[]): T__
 
 Returns the last item in an array, or `null` if the array is empty. 
 
@@ -73,7 +73,7 @@ Arr.lastItem([])            // null
 ```
 
 
-__contains<T>(T, T[]): boolean__
+__contains\<T\>(T, T[]): boolean__
 
 Returns true if an array contains a given value. 
 

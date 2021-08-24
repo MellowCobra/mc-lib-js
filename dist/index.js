@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Arr = require("./array");
-const Util = require("./util");
+exports.Util = exports.Arr = void 0;
+const ArrModule = require("./array");
+const UtilModule = require("./util");
+exports.Arr = ArrModule;
+exports.Util = UtilModule;
 exports.default = {
-    Arr,
-    Util
+    Arr: exports.Arr,
+    Util: exports.Util
 };

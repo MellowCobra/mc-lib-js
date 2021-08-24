@@ -1,7 +1,9 @@
-import * as Arr from "./array";
-import * as Util from "./util";
+import * as ArrModule from "./array";
+import * as UtilModule from "./util";
+export declare const Arr: typeof ArrModule;
+export declare const Util: typeof UtilModule;
 declare const _default: {
-    Arr: typeof Arr;
-    Util: typeof Util;
+    Arr: typeof ArrModule;
+    Util: typeof UtilModule;
 };
 export default _default;

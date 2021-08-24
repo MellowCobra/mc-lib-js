@@ -18,7 +18,7 @@ describe("lastItem", () => {
   })
 })
 
-describe("isInArray", () => {
+describe("contains", () => {
   test("true when item is only item in array", () => {
     expect(Arr.contains(1, [1])).toBe(true)
   })
@@ -45,5 +45,27 @@ describe("isInArray", () => {
 
   test("false when no array passed in", () => {
     expect(Arr.contains(1)).toBe(false)
+  })
+})
+
+describe("isEmpty", () => {
+  test("true for empty array", () => {
+    expect(Arr.isEmptyArray([])).toBe(true)
+  })
+
+  test("true for empty Array instance", () => {
+    expect(Arr.isEmptyArray(new Array())).toBe(true)
+  })
+
+  test("false for non-empty array", () => {
+    expect(Arr.isEmptyArray([1, 2, 3])).toBe(false)
+  })
+
+  test("false for non-empty Array instance", () => {
+    expect(Arr.isEmptyArray(new Array(1, 2, 3))).toBe(false)
+  })
+
+  test("true for null", () => {
+    expect(Arr.isEmptyArray(null)).toBe(true)
   })
 })

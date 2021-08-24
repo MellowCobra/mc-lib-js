@@ -84,3 +84,14 @@ Arr.contains("apple", ["grape", "apple", "banana"])   // true
 Arr.contains(4, [1, 2, 3])                            // false
 Arr.contains(1, [])                                   // false
 ```
+
+
+__isEmpty\<T\>(T[]): boolean__
+
+Returns `true` if a value is an array and is empty.
+
+```javascript
+Arr.isEmpty([])     // true
+Arr.isEmpty([1])    // false
+Arr.isEmptyArray(null)   // false; it is not an array so false by default
+```

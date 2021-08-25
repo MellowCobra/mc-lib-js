@@ -1,6 +1,6 @@
 {
   "name": "@mellow.cobra/lib",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "The MellowCobra Library for JavaScript is a collection of common methods for standard operations to fill in gaps in the existing standard JS library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

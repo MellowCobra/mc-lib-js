@@ -14,7 +14,7 @@
     "mellowcobra"
   ],
   "scripts": {
-    "compile": "npx tsc",
+    "compile": "npx tsc & typedoc",
     "test": "jest"
   },
   "repository": "git@github.com:MellowCobra/mc-lib-js.git",
@@ -28,6 +28,7 @@
     "@types/jest": "^27.0.1",
     "babel-jest": "^27.0.6",
     "jest": "^27.0.6",
+    "typedoc": "^0.21.6",
     "typescript": "^4.3.5"
   }
 }

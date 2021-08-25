@@ -1,4 +1,6 @@
 {
   "entryPoints": ["./src"],
-  "out": "docs"
+  "out": "docs",
+  "highlightTheme": "github-dark",
+  "theme": "./node_modules/typedoc-dark-theme/bin/default/"
 }

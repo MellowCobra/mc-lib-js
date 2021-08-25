@@ -58,8 +58,8 @@ export function distinctBy<T>(arr: T[], by: string | DistinctionFunc<T>): T[] {
  * 
  * Usage:
  * ```javascript
- * Arr.contains("apple", ["grape", "apple", "banana"])   // true
- * Arr.contains(4, [1, 2, 3])                            // false
+ * Arr.contains(["grape", "apple", "banana"], "apple")   // true
+ * Arr.contains([1, 2, 3], 4)                            // false
  * ```
  */
 export function contains<T>(arr: T[], item: T): boolean {

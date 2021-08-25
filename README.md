@@ -33,12 +33,12 @@ Import each module as needed
 ```typescript
 import { Arr } from "@mellow.cobra/lib"
 
-console.log(Arr.contains(1, [1, 2, 3]))   // true
+console.log(Arr.lastItem([1, 2, 3]))   // 3
 ```
 
 Import all modules in a single namespace
 ```typescript
 import MCLib from "@mellow.cobra/lib"
 
-console.log(MCLib.Arr.contains(1, [1, 2, 3]))   // true
+console.log(MCLib.Arr.lastItem([1, 2, 3]))   // 3
 ```

@@ -1,4 +1,8 @@
 # MC Lib
+
+__@mellow.cobra/lib__
+
+
 The MellowCobra Library for JavaScript is a collection of common methods for standard operations to fill in gaps in the existing standard JS library.
 
 It contains functions for common operations that I find myself doing all over the place.
@@ -7,9 +11,21 @@ It contains functions for common operations that I find myself doing all over th
 Documentation is built from the code directly using TypeDoc and can be viewed [here](https://mellowcobra.github.io/mc-lib-js/)
 
 ## Modules:
-- Util - A collection of utility methods for checking equality of various values
-- Arr - A collection of methods for dealing with arrays
-- Obj - A collection of methods for dealing with objects
+- [Util](https://mellowcobra.github.io/mc-lib-js/modules/Util.html) - A collection of utility methods for checking equality of various values
+- [Arr](https://mellowcobra.github.io/mc-lib-js/modules/Arr.html) - A collection of methods for dealing with arrays
+- [Obj](https://mellowcobra.github.io/mc-lib-js/modules/Obj.html) - A collection of methods for dealing with objects
+
+## Installation
+NPM
+```
+npm install @mellow.cobra/lib
+```
+
+Yarn
+```
+yarn install @mellow.cobra/lib
+```
+
 
 ## Usage
 

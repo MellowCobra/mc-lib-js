@@ -3,31 +3,56 @@
  * @module Arr
  */
 
+
+export type DistinctionFunc<T> = ((item: T, index?: number) => string)
 /**
- * Returns the last item in an array, or `null` if the array is empty. 
- * If the argument is not an array, returns `null`.
+ * Given an array and a field or function determining a unique string, returns a new distinct array.
  * 
- * @param arr
- * @returns
+ * If 2 items are different, but are determined to be unique base on the distinguishing field or function, then the first item in the array is chosen.
+ * @param arr The source array of objects.
+ * @param by A string denoting the field to use as a distinguishing identifier. Or a function which takes an item and returns a string to act as a distinguishing identifier.
+ * @returns 
  * 
  * 
- * Usage: 
- * ```javascript
- * Arr.lastItem([1, 2, 3])     // 3
- * Arr.lastItem([])            // null
+ * Usage:
+ * ```typescript
+ * const fruits = [
+ *   { name: "apple", color: "red" },
+ *   { name: "apple", color: "green" },
+ *   { name: "grape", color: "purple" },
+ *   { name: "apple", color: "red" },  // Duplicate
+ *   { name: "grape", color: "green" }
+ * ]
+ * 
+ * Arr.distinctBy(fruits, "name")                       
+ * // [{ name: "apple", color: "red" },{ name: "grape", color: "purple" },]
+ * 
+ * Arr.distinctBy(fruits, (fruit: any) => fruit.color)  
+ * // [{ name: "apple", color: "red" },{ name: "apple", color: "green" },{ name: "grape", color: "purple" }]
  * ```
  */
-export function lastItem<T>(arr: T[]): T | null {
-  if (!Array.isArray(arr) || arr.length === 0) return null
-  return arr[arr.length - 1]
+export function distinctBy<T>(arr: T[], by: string | DistinctionFunc<T>): T[] {
+  if (by == null) return arr
+
+  return Object.values(arr.reduce((map, el, i) => {
+    const distinctionKey = typeof by === "function" ? by(el, i) : el[by]
+
+    // Only enter into the list if the distinctionKey is not null, 
+    // and it has not already been entered into the list
+    if (distinctionKey != null && map[distinctionKey] === undefined) {
+      map[distinctionKey] = el
+    }
+
+    return map;
+  }, {}))
 }
 
 /**
  * Returns true if an array contains a given value. 
  * This is just a convenient shorthand to prevent having to use `indexOf(...) > -1`, and does not currently check for object equality.
- * 
- * @param item 
+ *
  * @param arr 
+ * @param item
  * @returns 
  * 
  * 
@@ -37,7 +62,7 @@ export function lastItem<T>(arr: T[]): T | null {
  * Arr.contains(4, [1, 2, 3])                            // false
  * ```
  */
-export function contains<T>(item: T, arr: T[]): boolean {
+export function contains<T>(arr: T[], item: T): boolean {
   if (!Array.isArray(arr) || arr.length === 0) return false
   return arr.indexOf(item) > -1
 }
@@ -58,4 +83,23 @@ export function contains<T>(item: T, arr: T[]): boolean {
 export function isEmptyArray<T>(arr: T[]): boolean {
   if(!Array.isArray(arr)) return true
   return arr.length === 0
+}
+
+/**
+ * Returns the last item in an array, or `null` if the array is empty. 
+ * If the argument is not an array, returns `null`.
+ * 
+ * @param arr
+ * @returns
+ * 
+ * 
+ * Usage: 
+ * ```javascript
+ * Arr.lastItem([1, 2, 3])     // 3
+ * Arr.lastItem([])            // null
+ * ```
+ */
+ export function lastItem<T>(arr: T[]): T | null {
+  if (!Array.isArray(arr) || arr.length === 0) return null
+  return arr[arr.length - 1]
 }

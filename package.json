@@ -29,6 +29,7 @@
     "babel-jest": "^27.0.6",
     "jest": "^27.0.6",
     "typedoc": "^0.21.6",
+    "typedoc-dark-theme": "^0.0.11",
     "typescript": "^4.3.5"
   }
 }

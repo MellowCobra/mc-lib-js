@@ -104,3 +104,26 @@ export function isEmptyArray<T>(arr: T[]): boolean {
   if (!Array.isArray(arr) || arr.length === 0) return null
   return arr[arr.length - 1]
 }
+
+/**
+ * Returns the first item in an array, or `null` if the array is empty. 
+ * If the argument is not an array, returns `null`.
+ * 
+ * Can pass in a number N and it will return first N items, or entire array if array length less than N.
+ * 
+ * @param arr
+ * @returns
+ * 
+ * 
+ * Usage: 
+ * ```javascript
+ * Arr.first([1, 2, 3])     // 1
+ * Arr.first([])            // null
+ * ```
+ */
+ export function first<T>(arr: T[], n: number = 1): T | T[] | null {
+  if (arr == undefined) return undefined
+  if (!Array.isArray(arr) || arr.length === 0) return null
+  if (n === 1) return arr[0]
+  return arr.slice(0, n)
+}

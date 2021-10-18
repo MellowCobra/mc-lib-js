@@ -1,6 +1,36 @@
 import * as Arr from "../../src/array"
 
 describe("Array Module", () => {
+  describe("first", () => {
+    test("returns the only item in an array length 1", () => {
+      expect(Arr.first(["hi"])).toEqual("hi")
+    })
+
+    test("returns the first item in an array length > 1", () => {
+      expect(Arr.first(["hi", "friend"])).toEqual("hi")
+    })
+
+    test("returns null for empty array", () => {
+      expect(Arr.first([])).toBeNull()
+    })
+
+    test("returns undefined when array is undefined", () => {
+      expect(Arr.first()).toBeUndefined()
+    })
+
+    test("returns first N items when array length == N items", () => {
+      expect(Arr.first([1, 2, 3], 3)).toEqual([1, 2, 3])
+    })
+
+    test("returns first N items when array length > N", () => {
+      expect(Arr.first([1,2,3,4,5], 3)).toEqual([1,2,3])
+    })
+
+    test("returns all items when N passed in and array length < N", () => {
+      expect(Arr.first([1,2,3], 5)).toEqual([1,2,3])
+    })
+  })
+
   describe("lastItem", () => {
     test("returns the only item in an array length 1", () => {
       expect(Arr.lastItem(["hi"])).toEqual("hi")

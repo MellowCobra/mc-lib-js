@@ -89,7 +89,9 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="Arr.html#contains" class="tsd-kind-icon">contains</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="Arr.html#distinctBy" class="tsd-kind-icon">distinct<wbr>By</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="Arr.html#first" class="tsd-kind-icon">first</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="Arr.html#isEmptyArray" class="tsd-kind-icon">is<wbr>Empty<wbr>Array</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="Arr.html#last" class="tsd-kind-icon">last</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="Arr.html#lastItem" class="tsd-kind-icon">last<wbr>Item</a></li>
 							</ul>
 						</section>
@@ -104,7 +106,7 @@
 					<div class="tsd-signature tsd-kind-icon">Distinction<wbr>Func&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/8c5e73a/src/array.ts#L7">array.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2f72472/src/array.ts#L7">array.ts:7</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -151,7 +153,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/8c5e73a/src/array.ts#L65">array.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2f72472/src/array.ts#L65">array.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -193,7 +195,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/8c5e73a/src/array.ts#L34">array.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2f72472/src/array.ts#L34">array.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -243,6 +245,54 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="first" class="tsd-anchor"></a>
+					<h3>first</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">first&lt;T&gt;<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, n<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2f72472/src/array.ts#L147">array.ts:147</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the first item in an array, or <code>null</code> if the array is empty.
+									If the argument is not an array, returns <code>null</code>.</p>
+								</div>
+								<p>Can pass in a number N and it will return first N items, or entire array if array length less than N.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>arr: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
+							<p>Usage:</p>
+							<pre><code class="language-javascript"><span style="color: #E1E4E8">Arr.</span><span style="color: #B392F0">first</span><span style="color: #E1E4E8">([</span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">2</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">3</span><span style="color: #E1E4E8">])     </span><span style="color: #6A737D">// 1</span>
+<span style="color: #E1E4E8">Arr.</span><span style="color: #B392F0">first</span><span style="color: #E1E4E8">([])            </span><span style="color: #6A737D">// null</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="isEmptyArray" class="tsd-anchor"></a>
 					<h3>is<wbr>Empty<wbr>Array</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
@@ -252,7 +302,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/8c5e73a/src/array.ts#L83">array.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2f72472/src/array.ts#L83">array.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -282,6 +332,54 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="last" class="tsd-anchor"></a>
+					<h3>last</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">last&lt;T&gt;<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, n<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2f72472/src/array.ts#L124">array.ts:124</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the last item in an array, or <code>null</code> if the array is empty.
+									If the argument is not an array, returns <code>null</code>.</p>
+								</div>
+								<p>Can pass in a number N and it will return the last N items, or entire array if array length less than N.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>arr: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
+							<p>Usage:</p>
+							<pre><code class="language-javascript"><span style="color: #E1E4E8">Arr.</span><span style="color: #B392F0">lastItem</span><span style="color: #E1E4E8">([</span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">2</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">3</span><span style="color: #E1E4E8">])     </span><span style="color: #6A737D">// 3</span>
+<span style="color: #E1E4E8">Arr.</span><span style="color: #B392F0">lastItem</span><span style="color: #E1E4E8">([])            </span><span style="color: #6A737D">// null</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="lastItem" class="tsd-anchor"></a>
 					<h3>last<wbr>Item</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
@@ -291,7 +389,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/8c5e73a/src/array.ts#L102">array.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2f72472/src/array.ts#L102">array.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -357,7 +455,13 @@
 						<a href="Arr.html#distinctBy" class="tsd-kind-icon">distinct<wbr>By</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="Arr.html#first" class="tsd-kind-icon">first</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="Arr.html#isEmptyArray" class="tsd-kind-icon">is<wbr>Empty<wbr>Array</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="Arr.html#last" class="tsd-kind-icon">last</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="Arr.html#lastItem" class="tsd-kind-icon">last<wbr>Item</a>

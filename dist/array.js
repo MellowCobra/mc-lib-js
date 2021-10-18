@@ -4,7 +4,7 @@
  * @module Arr
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lastItem = exports.isEmptyArray = exports.contains = exports.distinctBy = void 0;
+exports.first = exports.last = exports.lastItem = exports.isEmptyArray = exports.contains = exports.distinctBy = void 0;
 /**
  * Given an array and a field or function determining a unique string, returns a new distinct array.
  *
@@ -100,8 +100,62 @@ exports.isEmptyArray = isEmptyArray;
  * ```
  */
 function lastItem(arr) {
+    if (arr == undefined)
+        return undefined;
     if (!Array.isArray(arr) || arr.length === 0)
         return null;
     return arr[arr.length - 1];
 }
 exports.lastItem = lastItem;
+/**
+ * Returns the last item in an array, or `null` if the array is empty.
+ * If the argument is not an array, returns `null`.
+ *
+ * Can pass in a number N and it will return the last N items, or entire array if array length less than N.
+ *
+ * @param arr
+ * @returns
+ *
+ *
+ * Usage:
+ * ```javascript
+ * Arr.lastItem([1, 2, 3])     // 3
+ * Arr.lastItem([])            // null
+ * ```
+ */
+function last(arr, n = 1) {
+    if (arr == undefined)
+        return undefined;
+    if (!Array.isArray(arr) || arr.length === 0)
+        return null;
+    if (n === 1)
+        return arr[arr.length - 1];
+    return arr.slice(-n);
+}
+exports.last = last;
+/**
+ * Returns the first item in an array, or `null` if the array is empty.
+ * If the argument is not an array, returns `null`.
+ *
+ * Can pass in a number N and it will return first N items, or entire array if array length less than N.
+ *
+ * @param arr
+ * @returns
+ *
+ *
+ * Usage:
+ * ```javascript
+ * Arr.first([1, 2, 3])     // 1
+ * Arr.first([])            // null
+ * ```
+ */
+function first(arr, n = 1) {
+    if (arr == undefined)
+        return undefined;
+    if (!Array.isArray(arr) || arr.length === 0)
+        return null;
+    if (n === 1)
+        return arr[0];
+    return arr.slice(0, n);
+}
+exports.first = first;

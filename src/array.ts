@@ -106,6 +106,29 @@ export function isEmptyArray<T>(arr: T[]): boolean {
 }
 
 /**
+ * Returns the last item in an array, or `null` if the array is empty. 
+ * If the argument is not an array, returns `null`.
+ * 
+ * Can pass in a number N and it will return the last N items, or entire array if array length less than N.
+ * 
+ * @param arr
+ * @returns
+ * 
+ * 
+ * Usage: 
+ * ```javascript
+ * Arr.lastItem([1, 2, 3])     // 3
+ * Arr.lastItem([])            // null
+ * ```
+ */
+ export function last<T>(arr: T[], n: number = 1): T | T[] | null {
+  if (arr == undefined) return undefined
+  if (!Array.isArray(arr) || arr.length === 0) return null
+  if (n === 1) return arr[arr.length - 1]
+  return arr.slice(-n)
+}
+
+/**
  * Returns the first item in an array, or `null` if the array is empty. 
  * If the argument is not an array, returns `null`.
  * 

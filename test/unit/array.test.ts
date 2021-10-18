@@ -45,7 +45,37 @@ describe("Array Module", () => {
     })
 
     test("returns undefined when array is undefined", () => {
-      expect(Arr.lastItem()).toBeNull()
+      expect(Arr.lastItem()).toBeUndefined()
+    })
+  })
+
+  describe("last", () => {
+    test("returns the only item in an array length 1", () => {
+      expect(Arr.last(["hi"])).toEqual("hi")
+    })
+
+    test("returns the last item in an array length > 1", () => {
+      expect(Arr.last(["a", "b", "c"])).toEqual("c")
+    })
+
+    test("returns null for empty array", () => {
+      expect(Arr.last([])).toBeNull()
+    })
+
+    test("returns undefined when array is undefined", () => {
+      expect(Arr.last()).toBeUndefined()
+    })
+
+    test("returns last N items when array length == N", () => {
+      expect(Arr.last([1,2,3], 3)).toEqual([1,2,3])
+    })
+
+    test("returns last N items when array length > N", () => {
+      expect(Arr.last([1,2,3,4,5], 3)).toEqual([3,4,5])
+    })
+
+    test("returns entire array when array length < N", () => {
+      expect(Arr.last([1,2,3], 5)).toEqual([1,2,3])
     })
   })
 

@@ -117,8 +117,9 @@ export function isEmptyArray<T>(arr: T[]): boolean {
  * 
  * Usage: 
  * ```javascript
- * Arr.lastItem([1, 2, 3])     // 3
- * Arr.lastItem([])            // null
+ * Arr.last([1, 2, 3])            // 3
+ * Arr.last([])                   // null
+ * Arr.last([1, 2, 3, 4, 5], 2)   // [4, 5]
  * ```
  */
  export function last<T>(arr: T[], n: number = 1): T | T[] | null {
@@ -140,8 +141,9 @@ export function isEmptyArray<T>(arr: T[]): boolean {
  * 
  * Usage: 
  * ```javascript
- * Arr.first([1, 2, 3])     // 1
- * Arr.first([])            // null
+ * Arr.first([1, 2, 3])             // 1
+ * Arr.first([])                    // null
+ * Arr.first([1, 2, 3, 4, 5], 2)    // [1, 2]
  * ```
  */
  export function first<T>(arr: T[], n: number = 1): T | T[] | null {

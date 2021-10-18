@@ -100,6 +100,7 @@ export function isEmptyArray<T>(arr: T[]): boolean {
  * ```
  */
  export function lastItem<T>(arr: T[]): T | null {
+  if (arr == undefined) return undefined
   if (!Array.isArray(arr) || arr.length === 0) return null
   return arr[arr.length - 1]
 }

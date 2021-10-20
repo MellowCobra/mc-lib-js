@@ -11,10 +11,10 @@ It contains functions for common operations that I find myself doing all over th
 Documentation is built from the code directly using TypeDoc and can be viewed [here](https://mellowcobra.github.io/mc-lib-js/)
 
 ## Modules:
-- [Util](https://mellowcobra.github.io/mc-lib-js/modules/Util.html) - A collection of utility methods for checking equality of various values
 - [Arr](https://mellowcobra.github.io/mc-lib-js/modules/Arr.html) - A collection of methods for dealing with arrays
+- [Fn](https://mellowcobra.github.io/mc-lib-js/modules/Fn.html) - A collection of methods for dealing with functions
 - [Obj](https://mellowcobra.github.io/mc-lib-js/modules/Obj.html) - A collection of methods for dealing with objects
-
+- [Util](https://mellowcobra.github.io/mc-lib-js/modules/Util.html) - A collection of utility methods for checking equality of various values
 ## Installation
 NPM
 ```
@@ -23,7 +23,7 @@ npm install @mellow.cobra/lib
 
 Yarn
 ```
-yarn install @mellow.cobra/lib
+yarn add @mellow.cobra/lib
 ```
 
 

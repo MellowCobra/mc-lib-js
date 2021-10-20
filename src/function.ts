@@ -10,7 +10,7 @@ export type AnyFunction = (...args: any[]) => any
  * the first argument and returning a function taking the next argument, 
  * down to N arguments.
  * 
- * Does not work with 
+ * Does not work with variable argument functions
  * 
  * This enables partial application
  * 

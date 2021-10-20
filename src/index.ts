@@ -21,15 +21,18 @@
  */
 
 import * as ArrModule from "./array"
+import * as FnModule from "./function"
 import * as ObjModule from "./object"
 import * as UtilModule from  "./util"
 
 export const Arr = ArrModule
+export const Fn = FnModule
 export const Obj = ObjModule
 export const Util = UtilModule
 
 export default {
   Arr,
+  Fn,
   Obj,
   Util
 }

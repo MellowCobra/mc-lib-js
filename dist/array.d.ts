@@ -87,8 +87,9 @@ export declare function lastItem<T>(arr: T[]): T | null;
  *
  * Usage:
  * ```javascript
- * Arr.lastItem([1, 2, 3])     // 3
- * Arr.lastItem([])            // null
+ * Arr.last([1, 2, 3])            // 3
+ * Arr.last([])                   // null
+ * Arr.last([1, 2, 3, 4, 5], 2)   // [4, 5]
  * ```
  */
 export declare function last<T>(arr: T[], n?: number): T | T[] | null;
@@ -104,8 +105,9 @@ export declare function last<T>(arr: T[], n?: number): T | T[] | null;
  *
  * Usage:
  * ```javascript
- * Arr.first([1, 2, 3])     // 1
- * Arr.first([])            // null
+ * Arr.first([1, 2, 3])             // 1
+ * Arr.first([])                    // null
+ * Arr.first([1, 2, 3, 4, 5], 2)    // [1, 2]
  * ```
  */
 export declare function first<T>(arr: T[], n?: number): T | T[] | null;

@@ -3,8 +3,8 @@
  * @module Arr
  */
 
-
 export type DistinctionFunc<T> = ((item: T, index?: number) => string)
+
 /**
  * Given an array and a field or function determining a unique string, returns a new distinct array.
  * 

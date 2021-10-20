@@ -119,8 +119,9 @@ exports.lastItem = lastItem;
  *
  * Usage:
  * ```javascript
- * Arr.lastItem([1, 2, 3])     // 3
- * Arr.lastItem([])            // null
+ * Arr.last([1, 2, 3])            // 3
+ * Arr.last([])                   // null
+ * Arr.last([1, 2, 3, 4, 5], 2)   // [4, 5]
  * ```
  */
 function last(arr, n = 1) {
@@ -145,8 +146,9 @@ exports.last = last;
  *
  * Usage:
  * ```javascript
- * Arr.first([1, 2, 3])     // 1
- * Arr.first([])            // null
+ * Arr.first([1, 2, 3])             // 1
+ * Arr.first([])                    // null
+ * Arr.first([1, 2, 3, 4, 5], 2)    // [1, 2]
  * ```
  */
 function first(arr, n = 1) {

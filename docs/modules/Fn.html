@@ -88,6 +88,7 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Fn.html#curry" class="tsd-kind-icon">curry</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Fn.html#pipe" class="tsd-kind-icon">pipe</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,7 +102,7 @@
 					<div class="tsd-signature tsd-kind-icon">Any<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/6764ebd/src/function.ts#L6">function.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/6d118a4/src/function.ts#L6">function.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -139,17 +140,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/6764ebd/src/function.ts#L35">function.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/6d118a4/src/function.ts#L35">function.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Curries a function so that it can be split into a function taking
-										the first argument and returning a function taking the next argument,
+										the first argument(s) and returning a function taking the next argument(s),
 									down to N arguments.</p>
 								</div>
-								<p>Does not work with variable argument functions</p>
-								<p>This enables partial application</p>
+								<p>This enables partial application.</p>
+								<p>Does not work with variable argument functions.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -171,6 +172,61 @@
 <span style="color: #B392F0">add9</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">)            </span><span style="color: #6A737D">// 10</span>
 <span style="color: #B392F0">curriedAdd</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">9</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">)   </span><span style="color: #6A737D">// 10</span>
 <span style="color: #B392F0">curriedAdd</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">9</span><span style="color: #E1E4E8">)(</span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">)   </span><span style="color: #6A737D">// 10</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="pipe" class="tsd-anchor"></a>
+					<h3>pipe</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">pipe<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>fns<span class="tsd-signature-symbol">: </span><a href="Fn.html#AnyFunction" class="tsd-signature-type">AnyFunction</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Fn.html#AnyFunction" class="tsd-signature-type">AnyFunction</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/6d118a4/src/function.ts#L94">function.ts:94</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes multiple functions in an argument list and returns a new function
+										that will take the args of the first function and pipe the results of each
+									function in order to produce the result.</p>
+								</div>
+								<p>Can utilize Fn.curry to pass in partially applied functions.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>fns: <a href="Fn.html#AnyFunction" class="tsd-signature-type">AnyFunction</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="Fn.html#AnyFunction" class="tsd-signature-type">AnyFunction</a></h4>
+							<p>a new piped function which</p>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #6A737D">// Piping 2 functions</span>
+<span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">increment</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">n</span><span style="color: #E1E4E8">) { </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> n </span><span style="color: #F97583">+</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8"> }</span>
+<span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">double</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">n</span><span style="color: #E1E4E8">) { </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> n </span><span style="color: #F97583">*</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">2</span><span style="color: #E1E4E8"> }</span>
+
+<span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">incrementAndDouble</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> Fn.</span><span style="color: #B392F0">pipe</span><span style="color: #E1E4E8">(</span>
+<span style="color: #E1E4E8">  increment,</span>
+<span style="color: #E1E4E8">  double</span>
+<span style="color: #E1E4E8">)</span>
+
+<span style="color: #B392F0">incrementAndDouble</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">3</span><span style="color: #E1E4E8">)            </span><span style="color: #6A737D">// 8</span>
+
+
+<span style="color: #6A737D">// Utilize partial application</span>
+<span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">add</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">a</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">b</span><span style="color: #E1E4E8">) { </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> a </span><span style="color: #F97583">+</span><span style="color: #E1E4E8"> b }</span>
+
+<span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">doubleThenAdd3</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> Fn.</span><span style="color: #B392F0">pipe</span><span style="color: #E1E4E8">(</span>
+<span style="color: #E1E4E8">  double,</span>
+<span style="color: #E1E4E8">  Fn.</span><span style="color: #B392F0">curry</span><span style="color: #E1E4E8">(add)(</span><span style="color: #79B8FF">3</span><span style="color: #E1E4E8">)</span>
+<span style="color: #E1E4E8">)</span>
+
+<span style="color: #B392F0">doubleThenAdd3</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">2</span><span style="color: #E1E4E8">)                </span><span style="color: #6A737D">// 7</span>
 </code></pre>
 						</li>
 					</ul>
@@ -207,6 +263,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="Fn.html#curry" class="tsd-kind-icon">curry</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Fn.html#pipe" class="tsd-kind-icon">pipe</a>
 					</li>
 				</ul>
 			</nav>

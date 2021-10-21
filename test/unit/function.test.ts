@@ -63,4 +63,89 @@ describe("Fn module", () => {
       expect(() => Fn.curry(["i've", "been", "wondering"])).toThrowError("Argument to Fn.curry must be a function")
     })
   })
+
+  describe("pipe", () => {
+    function inc(n) {
+      return n + 1
+    }
+
+    function double(n) {
+      return n * 2
+    }
+
+    function add(a, b) {
+      return a + b
+    }
+    
+    function mul(a, b) {
+      return a * b
+    }
+
+    function max(a, b, c) {
+      return Math.max(a, b, c)
+    }
+
+    test.each([undefined, null, 1, "hallo"])("throws error if %s passed in", (input) => {
+      // @ts-ignore
+      expect(() => Fn.pipe(input)).toThrowError("All arguments to Fn.pipe must be functions")
+    })
+
+    test("throws error if any argument is not a function", () => {
+      expect(() => Fn.pipe(inc, null, double)).toThrowError("All arguments to Fn.pipe must be functions")
+    })
+
+    test("passes results of first function into the second function", () => {
+      const result = Fn.pipe(
+        double,
+        inc
+      )(1)
+
+      expect(result).toEqual(3)
+    })
+
+    test("can pass in partially applied functions", () => {
+      const result = Fn.pipe(
+        Fn.curry(add)(3),
+        Fn.curry(mul)(2)
+      )(2)
+
+      expect(result).toEqual(10)
+    })
+
+    test("handles partially applied functions that are not satisfied by the pipeline", () => {
+      // Takes 3, doubles it (6) and then returns a function that will find the max between 6 and other 2 arguments
+      const result = Fn.pipe(
+        double,
+        Fn.curry(max)
+      )(3)
+
+      expect(typeof result).toEqual("function")
+      expect(typeof result(3)).toEqual("function")
+      expect(result(3,5)).toEqual(6)
+    })
+
+    test("handles when first function takes multiple params", () => {
+      const result = Fn.pipe(
+        add,
+        double
+      )(2, 3)
+
+      expect(result).toEqual(10)
+    })
+
+    test("passing in garbage args to functions yields garbage results (not much we can do about that)", () => {
+      expect(Fn.pipe(add, double)(2)).toBeNaN()
+      expect(Fn.pipe(inc, Fn.curry(add)("hallo"))(1)).toEqual("hallo2")
+    })
+
+    test("trying to partially apply a function that has not been curried will throw an error", () => {
+      expect(() => {
+        Fn.pipe(
+          inc,
+          // @ts-ignore
+          add(2)
+        )(2)
+      }).toThrowError()
+    })
+  })
 })

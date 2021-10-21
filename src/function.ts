@@ -7,12 +7,12 @@ export type AnyFunction = (...args: any[]) => any
 
 /**
  * Curries a function so that it can be split into a function taking 
- * the first argument and returning a function taking the next argument, 
+ * the first argument(s) and returning a function taking the next argument(s), 
  * down to N arguments.
  * 
- * Does not work with variable argument functions
+ * This enables partial application.
  * 
- * This enables partial application
+ * Does not work with variable argument functions.
  * 
  * @param { fn } function the function being curried
  * @returns { fn } a new function which can be partially applied
@@ -53,5 +53,57 @@ export function curry(fn: AnyFunction): AnyFunction  {
         return curried(...args, ...args2);
       }
     }
+  }
+}
+
+/**
+ * Takes multiple functions in an argument list and returns a new function
+ * that will take the args of the first function and pipe the results of each
+ * function in order to produce the result.
+ * 
+ * Can utilize Fn.curry to pass in partially applied functions.
+ * 
+ * @param { ...fns } AnyFunction[] the functions being piped
+ * @returns { fn } a new piped function which 
+ * 
+ * Usage:
+ * ```typescript
+ * // Piping 2 functions
+ * function increment(n) { return n + 1 }
+ * function double(n) { return n * 2 }
+ * 
+ * const incrementAndDouble = Fn.pipe(
+ *   increment,
+ *   double
+ * )
+ * 
+ * incrementAndDouble(3)            // 8
+ * 
+ * 
+ * // Utilize partial application
+ * function add(a, b) { return a + b }
+ * 
+ * const doubleThenAdd3 = Fn.pipe(
+ *   double,
+ *   Fn.curry(add)(3)
+ * )
+ * 
+ * doubleThenAdd3(2)                // 7
+ * ```
+ */
+export function pipe(...fns: AnyFunction[]): AnyFunction {
+  if (fns == null || fns.length == 0 || fns.some(fn => typeof fn !== 'function')) {
+    throw new TypeError("All arguments to Fn.pipe must be functions")
+  }
+
+
+  return function piped(...args) {
+    return fns.reduce((arg, fn) => {
+      if (Array.isArray(arg)) {
+        return fn(...arg)
+      } else {
+        return fn(arg)
+      }
+    }, args)
   }
 }

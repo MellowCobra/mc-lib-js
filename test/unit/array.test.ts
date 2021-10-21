@@ -15,19 +15,20 @@ describe("Array Module", () => {
     })
 
     test("returns undefined when array is undefined", () => {
+      // @ts-ignore
       expect(Arr.first()).toBeUndefined()
     })
 
     test("returns first N items when array length == N items", () => {
-      expect(Arr.first([1, 2, 3], 3)).toEqual([1, 2, 3])
+      expect(Arr.first(3, [1, 2, 3])).toEqual([1, 2, 3])
     })
 
     test("returns first N items when array length > N", () => {
-      expect(Arr.first([1,2,3,4,5], 3)).toEqual([1,2,3])
+      expect(Arr.first(3, [1,2,3,4,5])).toEqual([1,2,3])
     })
 
     test("returns all items when N passed in and array length < N", () => {
-      expect(Arr.first([1,2,3], 5)).toEqual([1,2,3])
+      expect(Arr.first(5, [1,2,3])).toEqual([1,2,3])
     })
   })
 
@@ -45,6 +46,7 @@ describe("Array Module", () => {
     })
 
     test("returns undefined when array is undefined", () => {
+      // @ts-ignore
       expect(Arr.lastItem()).toBeUndefined()
     })
   })
@@ -63,49 +65,51 @@ describe("Array Module", () => {
     })
 
     test("returns undefined when array is undefined", () => {
+      // @ts-ignore
       expect(Arr.last()).toBeUndefined()
     })
 
     test("returns last N items when array length == N", () => {
-      expect(Arr.last([1,2,3], 3)).toEqual([1,2,3])
+      expect(Arr.last(3, [1,2,3])).toEqual([1,2,3])
     })
 
     test("returns last N items when array length > N", () => {
-      expect(Arr.last([1,2,3,4,5], 3)).toEqual([3,4,5])
+      expect(Arr.last(3, [1,2,3,4,5])).toEqual([3,4,5])
     })
 
     test("returns entire array when array length < N", () => {
-      expect(Arr.last([1,2,3], 5)).toEqual([1,2,3])
+      expect(Arr.last(5, [1,2,3])).toEqual([1,2,3])
     })
   })
 
   describe("contains", () => {
     test("true when item is only item in array", () => {
-      expect(Arr.contains([1], 1)).toBe(true)
+      expect(Arr.contains(1, [1])).toBe(true)
     })
 
     test("true when item is at the end of an array", () => {
-      expect(Arr.contains([1, 2, 3], 3)).toBe(true)
+      expect(Arr.contains(3, [1, 2, 3])).toBe(true)
     })
 
     test("true when item is null and is contained in array", () => {
-      expect(Arr.contains([1, null, "a"], null)).toBe(true)
+      expect(Arr.contains(null, [1, null, "a"])).toBe(true)
     })
 
     test("false when item is undefined and array is empty", () => {
-      expect(Arr.contains([], undefined)).toBe(false)
+      expect(Arr.contains(undefined, [])).toBe(false)
     })
 
     test("false when item is not in array", () => {
-      expect(Arr.contains([2, 3, 4], 1)).toBe(false)
+      expect(Arr.contains(1, [2, 3, 4])).toBe(false)
     })
 
     test("false when array is empty", () => {
-      expect(Arr.contains([], 1)).toBe(false)
+      expect(Arr.contains(1, [])).toBe(false)
     })
 
     test("false when no array passed in", () => {
-      expect(Arr.contains()).toBe(false)
+      // @ts-ignore
+      expect(Arr.contains()).toBe(undefined)
     })
   })
 
@@ -148,7 +152,7 @@ describe("Array Module", () => {
     ]
 
     test("returns distinct array when key is passed in; keeps first matching item", () => {
-      expect(Arr.distinctBy(fruits, "name")).toEqual([
+      expect(Arr.distinctBy("name", fruits)).toEqual([
         { name: "apple", color: "red", shape: "round" },
         { name: "grape", color: "purple", shape: "round" },
         { name: "banana", color: "yellow", shape: "long" }
@@ -160,7 +164,7 @@ describe("Array Module", () => {
         return `${fruit.color}:${fruit.shape}`
       }
 
-      expect(Arr.distinctBy(fruits, byColorAndShape)).toEqual([
+      expect(Arr.distinctBy(byColorAndShape, fruits)).toEqual([
         { name: "apple", color: "red", shape: "round" },
         { name: "apple", color: "green", shape: "round" },
         { name: "grape", color: "purple", shape: "round" },
@@ -169,19 +173,15 @@ describe("Array Module", () => {
     })
 
     test("returns empty array for empty array", () => {
-      expect(Arr.distinctBy([], 'id')).toEqual([])
+      expect(Arr.distinctBy('id', [])).toEqual([])
     })
 
     test("returns empty array when field is passed in, but no matching field exists on object", () => {
-      expect(Arr.distinctBy(fruits, "isBerry")).toEqual([])
+      expect(Arr.distinctBy("isBerry", fruits)).toEqual([])
     })
 
     test("returns original array when already unique", () => {
-      expect(Arr.distinctBy(distinctFruits, "name")).toEqual(distinctFruits)
-    })
-
-    test("returns original array when no field or delegate function provided", () => {
-      expect(Arr.distinctBy(fruits)).toEqual(fruits)
+      expect(Arr.distinctBy("name", distinctFruits)).toEqual(distinctFruits)
     })
   })
 })

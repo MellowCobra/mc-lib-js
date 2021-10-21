@@ -34,9 +34,9 @@ describe("Fn module", () => {
       expect(curriedMax(2, -1)(5)).toEqual(5)
     })
 
-    test("a curried function arity 2 can be called with 0 arguments and returns the original curried function", () => {
+    test("a curried function called with no arguments returns undefined", () => {
       const curriedAdd = Fn.curry(add)
-      expect(curriedAdd()).toEqual(curriedAdd)
+      expect(curriedAdd()).toBeUndefined()
     })
 
     test("passing in undefined throws an error", () => {
@@ -124,13 +124,24 @@ describe("Fn module", () => {
       expect(result(3,5)).toEqual(6)
     })
 
-    test("handles when first function takes multiple params", () => {
+    test("does not handle when first function takes multiple params", () => {
       const result = Fn.pipe(
         add,
+        inc,
         double
       )(2, 3)
 
-      expect(result).toEqual(10)
+
+      /**
+       * Instead, do this:
+       * 
+       * const result = Fn.pipe(
+       *    inc,
+       *    double
+       * )(add(2,3))
+       */
+
+      expect(result).toEqual(NaN)
     })
 
     test("passing in garbage args to functions yields garbage results (not much we can do about that)", () => {
@@ -146,6 +157,35 @@ describe("Fn module", () => {
           add(2)
         )(2)
       }).toThrowError()
+    })
+
+    test("can handle passing an array through the pipe", () => {
+      const people = [
+        { name: "Jimmy", age: 8, sex: "M" },
+        { name: "John", age: 19, sex: "M" },
+        { name: "Aisling", age: 5, sex: "NB" },
+        { name: "Caoimhe", age: 26, sex: "F" },
+        { name: "Saoirse", age: 88, sex: "F" },
+        { name: "Jane", age: 48, sex: "NB" },
+        { name: "Lisa", age: 58, sex: "F" },
+        { name: "Kelley", age: 16, sex: "F" },
+        { name: "Ronan", age: 18, sex: "NB" },
+        { name: "Zelda", age: 25, sex: "F" },
+        { name: "C3P0", age: 14, sex: null }
+      ]
+
+      function isNonbinary(p) { return p.sex === "NB"; }
+      function isUnderage(p) { return p.age <= 18; }
+
+      const underageNonBinary = Fn.pipe(
+        p => Array.prototype.filter.call(p, isNonbinary),
+        p => Array.prototype.filter.call(p, isUnderage)
+      )(people)
+
+      expect(underageNonBinary).toEqual([
+        { name: "Aisling", age: 5, sex: "NB" },
+        { name: "Ronan", age: 18, sex: "NB" }
+      ])
     })
   })
 })

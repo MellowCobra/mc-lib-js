@@ -3,6 +3,10 @@
  * @module Obj
  */
 
+import { curry } from "./function"
+import * as Arr from "./array"
+
+
 /**
  * Retrieves data deeply nested within an object.
  * 
@@ -22,12 +26,21 @@
  *   }
  * }
  * 
- * Obj.getIn(object, "a", "b", "c")     // "Hello!"
- * Obj.getIn(object, "x", "y")          // null
+ * Obj.getIn("a", "b", "c", object)     // "Hello!"
+ * Obj.getIn("x", "y", object)          // null
  * ```
  */
-export function getIn(obj: any, ...keys: (string|number)[]): any | null {
-  if (keys.length === 0) return obj
+export const getIn = curry(function (...args: [any] | [...any[], any]): any | null {
+  if (args.length === 0) return null
+  
+  let keys, obj
+  if (args.length === 1) {
+    return args[0]
+  } else {
+    obj = Arr.last(args)
+    keys = args.slice(0, args.length - 1)
+  }
+
   if (obj == null || typeof obj !== "object") return null
 
   const [key, ...rest] = keys
@@ -37,5 +50,14 @@ export function getIn(obj: any, ...keys: (string|number)[]): any | null {
   if (next == null) return null
   if (rest.length === 0) return next
 
-  return getIn(next, ...rest)
-}
+  return getIn(...rest, next)
+})
+
+
+
+// Obj.keys
+// Obj.isEmpty
+// Obj.values
+// Obj.entries
+// Obj.withoutKeys
+// Obj.onlyKeys

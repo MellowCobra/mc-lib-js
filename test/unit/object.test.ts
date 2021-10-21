@@ -3,7 +3,7 @@ import * as Obj from "../../src/object"
 describe("Object Module", () => {
   describe("getIn", () => {
     test("returns null for no object", () => {
-      expect(Obj.getIn(null, "hello")).toBeNull()
+      expect(Obj.getIn("hello", null)).toBeNull()
     })
 
     test("returns the original object for no keys", () => {
@@ -15,7 +15,7 @@ describe("Object Module", () => {
     test("returns value when object contains value", () => {
       const object = { hello: "world" }
 
-      expect(Obj.getIn(object, "hello")).toBe("world")
+      expect(Obj.getIn("hello", object)).toBe("world")
     })
 
     test("returns value when object contains nested value", () => {
@@ -25,7 +25,7 @@ describe("Object Module", () => {
         }
       }
 
-      expect(Obj.getIn(object, "a", "b")).toBe("c")
+      expect(Obj.getIn("a", "b", object)).toBe("c")
     })
 
     test("can pass indexes for arrays", () => {
@@ -38,11 +38,11 @@ describe("Object Module", () => {
         }
       }
 
-      expect(Obj.getIn(object, "a", "b", 1, "name")).toBe("Johns")
+      expect(Obj.getIn("a", "b", 1, "name", object)).toBe("Johns")
     })
 
     test("returns null when object does not contain value", () => {
-      expect(Obj.getIn({}, "a")).toBeNull()
+      expect(Obj.getIn("a", {})).toBeNull()
     })
 
     test("returns null when object does not contain nested value", () => {
@@ -50,7 +50,7 @@ describe("Object Module", () => {
         a: {}
       }
       
-      expect(Obj.getIn(object, "a", "b")).toBeNull()
+      expect(Obj.getIn("a", "b", object)).toBeNull()
     })
 
     test("returns null if part of nested value is not an object", () => {
@@ -60,7 +60,7 @@ describe("Object Module", () => {
         }
       }
 
-      expect(Obj.getIn(object, "a", "b", "c")).toBeNull()
+      expect(Obj.getIn("a", "b", "c", object)).toBeNull()
     })
   })
 })

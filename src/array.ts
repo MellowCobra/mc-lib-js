@@ -3,6 +3,8 @@
  * @module Arr
  */
 
+import { curry } from "./function"
+
 export type DistinctionFunc<T> = ((item: T, index?: number) => string)
 
 /**
@@ -20,20 +22,18 @@ export type DistinctionFunc<T> = ((item: T, index?: number) => string)
  *   { name: "apple", color: "red" },
  *   { name: "apple", color: "green" },
  *   { name: "grape", color: "purple" },
- *   { name: "apple", color: "red" },  // Duplicate
+ *   { name: "apple", color: "red" },     // Duplicate
  *   { name: "grape", color: "green" }
  * ]
  * 
- * Arr.distinctBy(fruits, "name")                       
+ * Arr.distinctBy("name", fruits)                       
  * // [{ name: "apple", color: "red" },{ name: "grape", color: "purple" },]
  * 
- * Arr.distinctBy(fruits, (fruit: any) => fruit.color)  
+ * Arr.distinctBy((fruit: any) => fruit.color, fruits)  
  * // [{ name: "apple", color: "red" },{ name: "apple", color: "green" },{ name: "grape", color: "purple" }]
  * ```
  */
-export function distinctBy<T>(arr: T[], by: string | DistinctionFunc<T>): T[] {
-  if (by == null) return arr
-
+export const distinctBy = curry(function<T>(by: string | DistinctionFunc<T>, arr: T[]): T[] {
   return Object.values(arr.reduce((map, el, i) => {
     const distinctionKey = typeof by === "function" ? by(el, i) : el[by]
 
@@ -45,7 +45,7 @@ export function distinctBy<T>(arr: T[], by: string | DistinctionFunc<T>): T[] {
 
     return map;
   }, {}))
-}
+})
 
 /**
  * Returns true if an array contains a given value. 
@@ -58,14 +58,14 @@ export function distinctBy<T>(arr: T[], by: string | DistinctionFunc<T>): T[] {
  * 
  * Usage:
  * ```javascript
- * Arr.contains(["grape", "apple", "banana"], "apple")   // true
- * Arr.contains([1, 2, 3], 4)                            // false
+ * Arr.contains("apple", ["grape", "apple", "banana"])   // true
+ * Arr.contains(4, [1, 2, 3])                            // false
  * ```
  */
-export function contains<T>(arr: T[], item: T): boolean {
+export const contains = curry(function contains<T>(item: T, arr: T[]): boolean {
   if (!Array.isArray(arr) || arr.length === 0) return false
   return arr.indexOf(item) > -1
-}
+})
 
 /**
  * Returns `true` if a value is an array and is empty.
@@ -80,10 +80,10 @@ export function contains<T>(arr: T[], item: T): boolean {
  * Arr.isEmptyArray(null)        // false; it is not an array so false by default
  * ```
  */
-export function isEmptyArray<T>(arr: T[]): boolean {
+export const isEmptyArray = curry(function isEmptyArray<T>(arr: T[]): boolean {
   if(!Array.isArray(arr)) return true
   return arr.length === 0
-}
+})
 
 /**
  * Returns the last item in an array, or `null` if the array is empty. 
@@ -99,11 +99,11 @@ export function isEmptyArray<T>(arr: T[]): boolean {
  * Arr.lastItem([])            // null
  * ```
  */
- export function lastItem<T>(arr: T[]): T | null {
+export const lastItem = curry(function lastItem<T>(arr: T[]): T | null {
   if (arr == undefined) return undefined
   if (!Array.isArray(arr) || arr.length === 0) return null
   return arr[arr.length - 1]
-}
+})
 
 /**
  * Returns the last item in an array, or `null` if the array is empty. 
@@ -119,15 +119,25 @@ export function isEmptyArray<T>(arr: T[]): boolean {
  * ```javascript
  * Arr.last([1, 2, 3])            // 3
  * Arr.last([])                   // null
- * Arr.last([1, 2, 3, 4, 5], 2)   // [4, 5]
+ * Arr.last(2, [1, 2, 3, 4, 5])   // [4, 5]
  * ```
  */
- export function last<T>(arr: T[], n: number = 1): T | T[] | null {
-  if (arr == undefined) return undefined
+export const last = curry(function last<T>(...args: [T[]] | [number, T[]]): T | T[] | null {
+  // @ts-ignore
+  if (args.length === 0) return undefined
+  
+  let arr, n
+  if (args.length === 1) {
+    arr = args[0]
+    n = 1
+  } else {
+    [ n, arr ] = args
+  }
+
   if (!Array.isArray(arr) || arr.length === 0) return null
   if (n === 1) return arr[arr.length - 1]
   return arr.slice(-n)
-}
+})
 
 /**
  * Returns the first item in an array, or `null` if the array is empty. 
@@ -143,12 +153,37 @@ export function isEmptyArray<T>(arr: T[]): boolean {
  * ```javascript
  * Arr.first([1, 2, 3])             // 1
  * Arr.first([])                    // null
- * Arr.first([1, 2, 3, 4, 5], 2)    // [1, 2]
+ * Arr.first(2, [1, 2, 3, 4, 5])    // [1, 2]
  * ```
  */
- export function first<T>(arr: T[], n: number = 1): T | T[] | null {
-  if (arr == undefined) return undefined
+export const first = curry(function first<T>(...args: [T[]] | [number, T[]]): T | T[] | null {
+  // @ts-ignore
+  if (args.length === 0) return undefined
+  
+  let arr, n
+  if (args.length === 1) {
+    arr = args[0]
+    n = 1
+  } else {
+    [ n, arr ] = args
+  }
+
   if (!Array.isArray(arr) || arr.length === 0) return null
   if (n === 1) return arr[0]
   return arr.slice(0, n)
-}
+})
+
+// Arr.map
+export const map = curry(function map<T>(fn: (...args: any[]) => any, arr: T[]) {
+  return arr.map(fn)
+})
+
+// Arr.reduce
+export const reduce = curry(function reduce<T>(fn: (...args: any[]) => any, starter: any, arr: T[]) {
+  return arr.reduce(fn, starter)
+})
+
+// Arr.filter
+export const filter = curry(function filter<T>(fn: (...args: any[]) => boolean, arr: T[]) {
+  return arr.filter(fn)
+})

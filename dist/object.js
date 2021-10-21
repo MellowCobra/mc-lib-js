@@ -5,6 +5,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getIn = void 0;
+const function_1 = require("./function");
+const Arr = require("./array");
 /**
  * Retrieves data deeply nested within an object.
  *
@@ -24,13 +26,21 @@ exports.getIn = void 0;
  *   }
  * }
  *
- * Obj.getIn(object, "a", "b", "c")     // "Hello!"
- * Obj.getIn(object, "x", "y")          // null
+ * Obj.getIn("a", "b", "c", object)     // "Hello!"
+ * Obj.getIn("x", "y", object)          // null
  * ```
  */
-function getIn(obj, ...keys) {
-    if (keys.length === 0)
-        return obj;
+exports.getIn = function_1.curry(function (...args) {
+    if (args.length === 0)
+        return null;
+    let keys, obj;
+    if (args.length === 1) {
+        return args[0];
+    }
+    else {
+        obj = Arr.last(args);
+        keys = args.slice(0, args.length - 1);
+    }
     if (obj == null || typeof obj !== "object")
         return null;
     const [key, ...rest] = keys;
@@ -39,6 +49,11 @@ function getIn(obj, ...keys) {
         return null;
     if (rest.length === 0)
         return next;
-    return getIn(next, ...rest);
-}
-exports.getIn = getIn;
+    return exports.getIn(...rest, next);
+});
+// Obj.keys
+// Obj.isEmpty
+// Obj.values
+// Obj.entries
+// Obj.withoutKeys
+// Obj.onlyKeys

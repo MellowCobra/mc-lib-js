@@ -38,19 +38,10 @@ function curry(fn) {
         throw new TypeError("Argument to Fn.curry must be a function");
     }
     return function curried(...args) {
-        // If no arguments passed in, return self
-        if (args.length === 0) {
-            return curried;
-        }
-        // If args take up the remaining parameters, apply them
-        else if (args.length >= fn.length) {
-            return fn(...args);
-        }
-        // If args do not take all remaining parameters, partially apply them and return a new function
-        else {
-            return function (...args2) {
-                return curried(...args, ...args2);
-            };
+        switch (true) {
+            case args.length === 0: return undefined;
+            case args.length >= fn.length: return fn(...args);
+            default: return (...args2) => curried(...args, ...args2);
         }
     };
 }
@@ -94,15 +85,6 @@ function pipe(...fns) {
     if (fns == null || fns.length == 0 || fns.some(fn => typeof fn !== 'function')) {
         throw new TypeError("All arguments to Fn.pipe must be functions");
     }
-    return function piped(...args) {
-        return fns.reduce((arg, fn) => {
-            if (Array.isArray(arg)) {
-                return fn(...arg);
-            }
-            else {
-                return fn(arg);
-            }
-        }, args);
-    };
+    return (arg) => fns.reduce((acc, fn) => fn(acc), arg);
 }
 exports.pipe = pipe;

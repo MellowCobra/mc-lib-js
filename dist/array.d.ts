@@ -18,18 +18,18 @@ export declare type DistinctionFunc<T> = ((item: T, index?: number) => string);
  *   { name: "apple", color: "red" },
  *   { name: "apple", color: "green" },
  *   { name: "grape", color: "purple" },
- *   { name: "apple", color: "red" },  // Duplicate
+ *   { name: "apple", color: "red" },     // Duplicate
  *   { name: "grape", color: "green" }
  * ]
  *
- * Arr.distinctBy(fruits, "name")
+ * Arr.distinctBy("name", fruits)
  * // [{ name: "apple", color: "red" },{ name: "grape", color: "purple" },]
  *
- * Arr.distinctBy(fruits, (fruit: any) => fruit.color)
+ * Arr.distinctBy((fruit: any) => fruit.color, fruits)
  * // [{ name: "apple", color: "red" },{ name: "apple", color: "green" },{ name: "grape", color: "purple" }]
  * ```
  */
-export declare function distinctBy<T>(arr: T[], by: string | DistinctionFunc<T>): T[];
+export declare const distinctBy: import("./function").AnyFunction;
 /**
  * Returns true if an array contains a given value.
  * This is just a convenient shorthand to prevent having to use `indexOf(...) > -1`, and does not currently check for object equality.
@@ -41,11 +41,11 @@ export declare function distinctBy<T>(arr: T[], by: string | DistinctionFunc<T>)
  *
  * Usage:
  * ```javascript
- * Arr.contains(["grape", "apple", "banana"], "apple")   // true
- * Arr.contains([1, 2, 3], 4)                            // false
+ * Arr.contains("apple", ["grape", "apple", "banana"])   // true
+ * Arr.contains(4, [1, 2, 3])                            // false
  * ```
  */
-export declare function contains<T>(arr: T[], item: T): boolean;
+export declare const contains: import("./function").AnyFunction;
 /**
  * Returns `true` if a value is an array and is empty.
  * @param arr
@@ -59,7 +59,7 @@ export declare function contains<T>(arr: T[], item: T): boolean;
  * Arr.isEmptyArray(null)        // false; it is not an array so false by default
  * ```
  */
-export declare function isEmptyArray<T>(arr: T[]): boolean;
+export declare const isEmptyArray: import("./function").AnyFunction;
 /**
  * Returns the last item in an array, or `null` if the array is empty.
  * If the argument is not an array, returns `null`.
@@ -74,7 +74,7 @@ export declare function isEmptyArray<T>(arr: T[]): boolean;
  * Arr.lastItem([])            // null
  * ```
  */
-export declare function lastItem<T>(arr: T[]): T | null;
+export declare const lastItem: import("./function").AnyFunction;
 /**
  * Returns the last item in an array, or `null` if the array is empty.
  * If the argument is not an array, returns `null`.
@@ -89,10 +89,10 @@ export declare function lastItem<T>(arr: T[]): T | null;
  * ```javascript
  * Arr.last([1, 2, 3])            // 3
  * Arr.last([])                   // null
- * Arr.last([1, 2, 3, 4, 5], 2)   // [4, 5]
+ * Arr.last(2, [1, 2, 3, 4, 5])   // [4, 5]
  * ```
  */
-export declare function last<T>(arr: T[], n?: number): T | T[] | null;
+export declare const last: import("./function").AnyFunction;
 /**
  * Returns the first item in an array, or `null` if the array is empty.
  * If the argument is not an array, returns `null`.
@@ -107,7 +107,10 @@ export declare function last<T>(arr: T[], n?: number): T | T[] | null;
  * ```javascript
  * Arr.first([1, 2, 3])             // 1
  * Arr.first([])                    // null
- * Arr.first([1, 2, 3, 4, 5], 2)    // [1, 2]
+ * Arr.first(2, [1, 2, 3, 4, 5])    // [1, 2]
  * ```
  */
-export declare function first<T>(arr: T[], n?: number): T | T[] | null;
+export declare const first: import("./function").AnyFunction;
+export declare const map: import("./function").AnyFunction;
+export declare const reduce: import("./function").AnyFunction;
+export declare const filter: import("./function").AnyFunction;

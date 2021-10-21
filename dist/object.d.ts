@@ -21,8 +21,8 @@
  *   }
  * }
  *
- * Obj.getIn(object, "a", "b", "c")     // "Hello!"
- * Obj.getIn(object, "x", "y")          // null
+ * Obj.getIn("a", "b", "c", object)     // "Hello!"
+ * Obj.getIn("x", "y", object)          // null
  * ```
  */
-export declare function getIn(obj: any, ...keys: (string | number)[]): any | null;
+export declare const getIn: import("./function").AnyFunction;

@@ -21,18 +21,21 @@
  * @module
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Util = exports.Obj = exports.Fn = exports.Arr = void 0;
+exports.Util = exports.Str = exports.Obj = exports.Fn = exports.Arr = void 0;
 const ArrModule = require("./array");
 const FnModule = require("./function");
 const ObjModule = require("./object");
+const StrModule = require("./string");
 const UtilModule = require("./util");
 exports.Arr = ArrModule;
 exports.Fn = FnModule;
 exports.Obj = ObjModule;
+exports.Str = StrModule;
 exports.Util = UtilModule;
 exports.default = {
     Arr: exports.Arr,
     Fn: exports.Fn,
     Obj: exports.Obj,
+    Str: exports.Str,
     Util: exports.Util
 };

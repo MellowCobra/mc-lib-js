@@ -184,3 +184,22 @@ exports.reduce = function_1.curry(function reduce(fn, starter, arr) {
 exports.filter = function_1.curry(function filter(fn, arr) {
     return arr.filter(fn);
 });
+// STANDARD METHODS
+// Arr.concat
+// Arr.every
+// Arr.some
+// Arr.find
+// Arr.findIndex
+// Arr.flat
+// Arr.forEach
+// Arr.join
+// Arr.pop
+// Arr.push
+// Arr.reverse
+// Arr.reduceRight
+// Arr.shift
+// Arr. slice
+// Arr.sort
+// Arr.unshift
+// CUSTOM METHODS
+// Arr.intersection

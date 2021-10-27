@@ -81,7 +81,14 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Obj.html#entries" class="tsd-kind-icon">entries</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Obj.html#freeze" class="tsd-kind-icon">freeze</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Obj.html#getIn" class="tsd-kind-icon">get<wbr>In</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Obj.html#isEmpty" class="tsd-kind-icon">is<wbr>Empty</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Obj.html#keys" class="tsd-kind-icon">keys</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Obj.html#onlyKeys" class="tsd-kind-icon">only<wbr>Keys</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Obj.html#values" class="tsd-kind-icon">values</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Obj.html#withoutKeys" class="tsd-kind-icon">without<wbr>Keys</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,6 +96,74 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="entries" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> entries</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">entries<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/object.ts#L165">object.ts:165</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Wrapper around the Object.entries method.
+									Returns an array of arrays where each sub array maps to a key:value pair; the first element being the key, and the second element being the value.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #E1E4E8">Obj.</span><span style="color: #B392F0">keys</span><span style="color: #E1E4E8">({ name: </span><span style="color: #9ECBFF">&quot;Brian&quot;</span><span style="color: #E1E4E8">, age: </span><span style="color: #79B8FF">25</span><span style="color: #E1E4E8">, gender: </span><span style="color: #9ECBFF">&quot;M&quot;</span><span style="color: #E1E4E8"> })  </span><span style="color: #6A737D">// [&quot;name&quot;, &quot;age&quot;, &quot;gender&quot;]</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="freeze" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> freeze</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">freeze<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/object.ts#L183">object.ts:183</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Wrapper around the Object.freeze method.
+										Returns a frozen instance of the object passed in.
+									Attempts to modify this new frozen object will throw an erro</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">frozenBrian</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> Obj.</span><span style="color: #B392F0">freeze</span><span style="color: #E1E4E8">({ name: </span><span style="color: #9ECBFF">&quot;Brian&quot;</span><span style="color: #E1E4E8">, age: </span><span style="color: #79B8FF">25</span><span style="color: #E1E4E8">, gender: </span><span style="color: #9ECBFF">&quot;M&quot;</span><span style="color: #E1E4E8"> })</span>
+
+<span style="color: #E1E4E8">frozenBrian.age </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">26</span><span style="color: #E1E4E8">           </span><span style="color: #6A737D">// Throws error</span>
+<span style="color: #E1E4E8">console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(frozenBrian.age)   </span><span style="color: #6A737D">// 25</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="getIn" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>In</h3>
@@ -99,7 +174,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/b9c33ba/src/object.ts#L33">object.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/object.ts#L33">object.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -130,6 +205,168 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="isEmpty" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> is<wbr>Empty</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Empty<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/object.ts#L71">object.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns true or false if value passed in is an empty object.</p>
+								</div>
+								<p>Non-object inputs yield a null return value</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #E1E4E8">Obj.</span><span style="color: #B392F0">isEmpty</span><span style="color: #E1E4E8">({})                </span><span style="color: #6A737D">// true</span>
+<span style="color: #E1E4E8">Obj.</span><span style="color: #B392F0">isEmpty</span><span style="color: #E1E4E8">({ a: </span><span style="color: #9ECBFF">&quot;hello&quot;</span><span style="color: #E1E4E8"> })    </span><span style="color: #6A737D">// false</span>
+<span style="color: #E1E4E8">Obj.</span><span style="color: #B392F0">isEmpty</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">)                 </span><span style="color: #6A737D">// null</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="keys" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> keys</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">keys<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/object.ts#L137">object.ts:137</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Wrapper around the Object.keys method.
+									Returns an array of strings specifying the keys on an object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #E1E4E8">Obj.</span><span style="color: #B392F0">keys</span><span style="color: #E1E4E8">({ name: </span><span style="color: #9ECBFF">&quot;Brian&quot;</span><span style="color: #E1E4E8">, age: </span><span style="color: #79B8FF">25</span><span style="color: #E1E4E8">, gender: </span><span style="color: #9ECBFF">&quot;M&quot;</span><span style="color: #E1E4E8"> })  </span><span style="color: #6A737D">// [&quot;name&quot;, &quot;age&quot;, &quot;gender&quot;]</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="onlyKeys" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> only<wbr>Keys</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">only<wbr>Keys<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/object.ts#L114">object.ts:114</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a new object that has only the specified fields</p>
+								</div>
+								<p>Non-object inputs yield a null return value</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #E1E4E8">Obj.</span><span style="color: #B392F0">onlyKeys</span><span style="color: #E1E4E8">([</span><span style="color: #9ECBFF">&quot;name&quot;</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">&quot;age&quot;</span><span style="color: #E1E4E8">], { name: </span><span style="color: #9ECBFF">&quot;Brian&quot;</span><span style="color: #E1E4E8">, age: </span><span style="color: #79B8FF">25</span><span style="color: #E1E4E8">, gender: </span><span style="color: #9ECBFF">&quot;M&quot;</span><span style="color: #E1E4E8"> })  </span><span style="color: #6A737D">// { name: &quot;Brian&quot;, age: 25 }</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="values" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> values</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/object.ts#L151">object.ts:151</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Wrapper around the Object.values method.
+									Returns an array of the values inside an object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #E1E4E8">Obj.</span><span style="color: #B392F0">values</span><span style="color: #E1E4E8">({ name: </span><span style="color: #9ECBFF">&quot;Brian&quot;</span><span style="color: #E1E4E8">, age: </span><span style="color: #79B8FF">25</span><span style="color: #E1E4E8">, gender: </span><span style="color: #9ECBFF">&quot;M&quot;</span><span style="color: #E1E4E8"> })  </span><span style="color: #6A737D">// [&quot;Brian&quot;, 25, &quot;M&quot;]</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="withoutKeys" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> without<wbr>Keys</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">without<wbr>Keys<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/object.ts#L90">object.ts:90</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a new object that has the specified fields omitted</p>
+								</div>
+								<p>Non-object inputs yield a null return value</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #E1E4E8">Obj.</span><span style="color: #B392F0">withoutKeys</span><span style="color: #E1E4E8">([</span><span style="color: #9ECBFF">&quot;age&quot;</span><span style="color: #E1E4E8">], { name: </span><span style="color: #9ECBFF">&quot;Brian&quot;</span><span style="color: #E1E4E8">, age: </span><span style="color: #79B8FF">25</span><span style="color: #E1E4E8">, gender: </span><span style="color: #9ECBFF">&quot;M&quot;</span><span style="color: #E1E4E8"> })  </span><span style="color: #6A737D">// { name: &quot;Brian&quot;, gender: &quot;M&quot; }</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -148,6 +385,9 @@
 						<a href="Obj.html">Obj</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="Str.html">Str</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="Util.html">Util</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -158,7 +398,28 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Obj.html#entries" class="tsd-kind-icon">entries</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Obj.html#freeze" class="tsd-kind-icon">freeze</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="Obj.html#getIn" class="tsd-kind-icon">get<wbr>In</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Obj.html#isEmpty" class="tsd-kind-icon">is<wbr>Empty</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Obj.html#keys" class="tsd-kind-icon">keys</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Obj.html#onlyKeys" class="tsd-kind-icon">only<wbr>Keys</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Obj.html#values" class="tsd-kind-icon">values</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Obj.html#withoutKeys" class="tsd-kind-icon">without<wbr>Keys</a>
 					</li>
 				</ul>
 			</nav>

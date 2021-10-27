@@ -14,6 +14,7 @@ Documentation is built from the code directly using TypeDoc and can be viewed [h
 - [Arr](https://mellowcobra.github.io/mc-lib-js/modules/Arr.html) - A collection of methods for dealing with arrays
 - [Fn](https://mellowcobra.github.io/mc-lib-js/modules/Fn.html) - A collection of methods for dealing with functions
 - [Obj](https://mellowcobra.github.io/mc-lib-js/modules/Obj.html) - A collection of methods for dealing with objects
+- [Str](https://mellowcobra.github.io/mc-lib-js/modules/Str.html) - A collection of methods for dealing with strings
 - [Util](https://mellowcobra.github.io/mc-lib-js/modules/Util.html) - A collection of utility methods for checking equality of various values
 ## Installation
 NPM

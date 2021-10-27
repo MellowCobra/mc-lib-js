@@ -187,3 +187,25 @@ export const reduce = curry(function reduce<T>(fn: (...args: any[]) => any, star
 export const filter = curry(function filter<T>(fn: (...args: any[]) => boolean, arr: T[]) {
   return arr.filter(fn)
 })
+
+// STANDARD METHODS
+// Arr.concat
+// Arr.every
+// Arr.some
+// Arr.find
+// Arr.findIndex
+// Arr.flat
+// Arr.forEach
+// Arr.join
+// Arr.pop
+// Arr.push
+// Arr.reverse
+// Arr.reduceRight
+// Arr.shift
+// Arr. slice
+// Arr.sort
+// Arr.unshift
+
+// CUSTOM METHODS
+// Arr.intersection
+

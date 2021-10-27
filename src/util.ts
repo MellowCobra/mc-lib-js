@@ -8,6 +8,8 @@
  * @module Util
  */
 
+import { curry } from "./function"
+
 
 /**
  * Returns `false` if the input value is _exactly_ `null`. 

@@ -92,11 +92,11 @@ describe("Str module", () => {
     const a = 'réservé'; // with accents, lowercase
     const b = 'RESERVE'; // no accents, uppercase
 
-    test("with accents", () => {
+    test("works with accents", () => {
       expect(Str.localeCompare(a, b)).toBe(1)
     })
 
-    test("using options", () => {
+    test("works using options", () => {
       expect(Str.localeCompare(a, b, "en", { sensitivity: "base" })).toBe(0)
     })
 
@@ -104,4 +104,51 @@ describe("Str module", () => {
       expect(Str.localeCompare(null, "a")).toBeNull()
     })
   })
+
+  describe("endsWith", () => {
+    test("true when string ends with specified substring", () => {
+      expect(Str.endsWith("!", "Hello World!")).toBe(true)
+    })
+
+    test("true when substring is empty", () => {
+      expect(Str.endsWith("", "Hello World!")).toBe(true)
+    })
+
+    test("false when string does not end with specified substring", () => {
+      expect(Str.endsWith("!", "Hello, world.")).toBe(false)
+    })
+
+    test("returns null if either argument is not a string", () => {
+      expect(Str.endsWith(1, "hallo")).toBeNull()
+      expect(Str.endsWith("end", {})).toBeNull()
+    })
+
+    test("can be partially-applied", () => {
+      const endsWithNewline = Str.endsWith("\n")
+
+      expect(endsWithNewline("Hi, friend!\n")).toBe(true)
+      expect(endsWithNewline("whaddup")).toBe(false)
+    })
+  })
+
+  describe("startsWith", () => {})
+
+  describe("indexOf", () => {})
+  describe("match", () => {})
+  describe("matchAll", () => {})
+  describe("replace", () => {})
+  describe("replaceAll", () => {})
+  describe("search", () => {})
+  describe("padEnd", () => {})
+  describe("padStart", () => {})
+  describe("slice", () => {})
+  describe("split", () => {})
+  describe("substring", () => {})
+  describe("toLocaleLowerCase", () => {})
+  describe("toLocaleUpperCase", () => {})
+  describe("toLowerCase", () => {})
+  describe("toUpperCase", () => {})
+  describe("trim", () => {})
+  describe("trimEnd", () => {})
+  describe("trimStart", () => {})
 })

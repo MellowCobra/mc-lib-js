@@ -37,7 +37,7 @@ export const isString = curry(function isString(str: string): boolean {
  * Str.at(1, "hello")     // e
  * ```
  */
-export const at = curry(function at(index: number, str: string): string {
+export const at = curry(function at(index: number, str: string): string | null {
   switch(true) {
     case !isString(str):
     case str.length === 0:
@@ -63,7 +63,7 @@ export const at = curry(function at(index: number, str: string): string {
  * Str.concat("Hello", " ", "world!")     // "Hello world!"
  * ```
  */
-export const concat = function concat(...strs: string[]): string {
+export const concat = function concat(...strs: string[]): string | null {
   if (strs.length === 0) return null
 
   strs.forEach((s, i) => {
@@ -89,7 +89,7 @@ export const concat = function concat(...strs: string[]): string {
  * Str.includes("Jim", "My name might just be Jim Pickens...")     // true
  * ```
  */
-export const includes = curry(function (substr: string, str: string): boolean {
+export const includes = curry(function (substr: string, str: string): boolean | null {
   if (!isString(substr) || !isString(str)) return null
 
   return str.includes(substr)
@@ -109,8 +109,26 @@ export const includes = curry(function (substr: string, str: string): boolean {
  * Str.localeCompare('réservé', 'RESERVE')     // 1
  * ```
  */
-export const localeCompare = function localeCompare(a: string, b: string, ...args: any[]): number {
+export const localeCompare = function localeCompare(a: string, b: string, ...args: any[]): number | null {
   if (!isString(a) || !isString(b)) return null
 
   return a.localeCompare(b, ...args)
 }
+
+/**
+ * Checks if a string ends with the given substring
+ * 
+ * @param { string } ref the reference string
+ * @param { string } cmp the comparison string
+ * @returns number indicating whether the reference string comes before or after the comparison string
+ * 
+ * Usage:
+ * ```typescript
+ * Str.localeCompare('réservé', 'RESERVE')     // 1
+ * ```
+ */
+ export const endsWith = curry(function endsWith(cmp: string, str: string): boolean | null {
+  if (!isString(str) || !isString(cmp)) return null
+
+  return str.endsWith(cmp)
+})

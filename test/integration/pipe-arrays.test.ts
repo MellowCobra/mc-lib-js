@@ -35,9 +35,9 @@ describe("array methods", () => {
 
     test("can pipe an array into filter and reduce", () => {
       const fruitCountNoBananas = Fn.pipe(
-        Arr.map(a => a.name),
-        Arr.filter(name => name !== "banana"),
-        Arr.reduce((acc, name) => {
+        Arr.map(a => a.name),                       // Grab the names
+        Arr.filter(name => name !== "banana"),      // We don't like bananas here...
+        Arr.reduce((acc, name) => {                 // Get a count of each fruit name
           if (acc[name] == null) acc[name] = 0
           acc[name]++
 

@@ -173,39 +173,169 @@ export const first = curry(function first<T>(...args: [T[]] | [number, T[]]): T 
   return arr.slice(0, n)
 })
 
+
+// STANDARD METHODS
 // Arr.map
-export const map = curry(function map<T>(fn: (...args: any[]) => any, arr: T[]) {
+export const map = curry(function map(fn: (...args: any[]) => any, arr: any[]) {
+  if (!isArray(arr)) return null
   return arr.map(fn)
 })
 
 // Arr.reduce
-export const reduce = curry(function reduce<T>(fn: (...args: any[]) => any, starter: any, arr: T[]) {
+export const reduce = curry(function reduce(fn: (...args: any[]) => any, starter: any, arr: any[]): any {
+  if (!isArray(arr)) return null
   return arr.reduce(fn, starter)
 })
 
+// Arr.length
+export const length = function length(arr: any[]): null | number {
+  if (!isArray(arr)) return null
+
+  return arr.length
+}
+
+// Arr.concat
+export const concat = curry(function concat(arr: any[], arr2: any[]): any[] {
+  if (!isArray(arr) && !Array.isArray(arr2)) return null
+
+  const a = isArray(arr) ? arr : []
+  const b = isArray(arr2) ? arr2 : []
+
+  return a.concat(b)
+})
+
+// Arr.concatAll
+// Does not work with partial application
+export const concatAll = function concatAll(...arrs: any[][]): any[] {
+  if (arrs.length === 0) return null
+  const nonNullArrs = arrs.filter(a => a != null)
+
+  return [].concat(...nonNullArrs)
+}
+
+// Arr.every
+export const every = curry(function every(predicate: (value: any, index: number, array: any[]) => value is any, arr: any[]): boolean {
+  if (!isArray(arr)) return null
+
+  return arr.every(predicate)
+})
+
 // Arr.filter
-export const filter = curry(function filter<T>(fn: (...args: any[]) => boolean, arr: T[]) {
+export const filter = curry(function filter(fn: (...args: any[]) => boolean, arr: any[]): any[] {
+  if (!isArray(arr)) return null
   return arr.filter(fn)
 })
 
-// STANDARD METHODS
-// Arr.concat
-// Arr.every
-// Arr.some
 // Arr.find
+export const find = curry(function find(fn: (...args: any[]) => boolean, arr: any[]): any {
+  if (!isArray(arr)) return null
+  return arr.find(fn)
+})
+
 // Arr.findIndex
+export const findIndex = curry(function find(fn: (...args: any[]) => boolean, arr: any[]): number {
+  if (!isArray(arr)) return null
+  return arr.findIndex(fn)
+})
+
 // Arr.flat
+export const flat = function flat(arr: any[]): any[] {
+  if (!isArray(arr)) return null
+  return Array.from(arr).flat()
+}
+
+// Arr.flatTo
+export const flatTo = curry(function flatTo(to: number, arr: any[]): any[] {
+  if (!isArray(arr)) return null
+  return Array.from(arr).flat(to)
+})
+
+// Arr.flatMap
+export const flatMap = curry(function flatMap(fn: (...args: any[]) => any, arr: any[]): any[] {
+  if (!isArray(arr)) return null
+  return arr.flatMap(fn)
+})
+
 // Arr.forEach
+export const forEach = curry(function forEach(fn: (...args: any[]) => any, arr: any[]) {
+  if (!isArray(arr)) return null
+  return arr.forEach(fn)
+})
+
+// Arr.from
+export const from = function from(arr: any[]): any[] {
+  if (!isArray(arr)) return null
+  return Array.from(arr)
+}
+
+// Arr.mapFrom
+export const mapFrom = curry(function mapFrom(fn: (...args: any[]) => any, arr: any[]): any[] {
+  if (!isArray(arr)) return null
+  return Array.from(arr, fn)
+})
+
+// Arr.includes
+export const includes = curry(function includes(item: any, arr: any[]): boolean {
+  if (!isArray(arr)) return null
+  return arr.includes(item)
+})
+
+// Arr.indexOf
+export const indexOf = curry(function indexOf(item: any, arr: any[]): number | null {
+  if (!Array.isArray(arr)) return null
+  return arr.indexOf(item)
+})
+
+// Arr.isArray
+export const isArray = Array.isArray
+
 // Arr.join
-// Arr.pop
+export const join = function join(arr: any[]): string | null {
+  if (!isArray(arr)) return null
+  return arr.join("")
+}
+
+// Arr.joinWith
+export const joinWith = curry(function joinWith(delimiter: string, arr: any[]): string | null {
+  if (!isArray(arr)) return null
+  return arr.join(delimiter)
+})
+
+// Arr.lastIndexOf
+export const lastIndexOf = curry(function lastIndexOf(item: any, arr: any[]): number | null {
+  if (!isArray(arr)) return null
+  return arr.lastIndexOf(item)
+})
+
 // Arr.push
-// Arr.reverse
+export const push = curry(function push(item: any, arr: any[]): any[] | null {
+  if (!isArray(arr)) return null
+  return [...arr, item]
+})
+
 // Arr.reduceRight
-// Arr.shift
-// Arr. slice
+export const reduceRight = curry(function reduceRight(fn: (...args: any[]) => any, starter: any, arr: any[]): any {
+  if (!isArray(arr)) return null
+  return arr.reduceRight(fn, starter)
+})
+
+// Arr.reverse
+export const reverse = curry(function reverse(arr: any[]): any[] {
+  if (!isArray(arr)) return null
+  return from(arr).reverse()
+})
+
+// Arr.slice
+// Arr.some
 // Arr.sort
-// Arr.unshift
 
 // CUSTOM METHODS
 // Arr.intersection
+
+
+//TODO: determine if we should chop these methods
+// They are not functional by nature so probably not gonna do it
+// Arr.pop
+// Arr.shift
+// Arr.unshift
 

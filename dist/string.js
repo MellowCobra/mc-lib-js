@@ -4,7 +4,7 @@
  * @module Str
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.localeCompare = exports.includes = exports.concat = exports.at = exports.isString = void 0;
+exports.endsWith = exports.localeCompare = exports.includes = exports.concat = exports.at = exports.isString = void 0;
 const function_1 = require("./function");
 /**
 * Indicates if value is a string or an instance of String
@@ -111,3 +111,20 @@ const localeCompare = function localeCompare(a, b, ...args) {
     return a.localeCompare(b, ...args);
 };
 exports.localeCompare = localeCompare;
+/**
+ * Checks if a string ends with the given substring
+ *
+ * @param { string } ref the reference string
+ * @param { string } cmp the comparison string
+ * @returns number indicating whether the reference string comes before or after the comparison string
+ *
+ * Usage:
+ * ```typescript
+ * Str.localeCompare('réservé', 'RESERVE')     // 1
+ * ```
+ */
+exports.endsWith = function_1.curry(function endsWith(cmp, str) {
+    if (!exports.isString(str) || !exports.isString(cmp))
+        return null;
+    return str.endsWith(cmp);
+});

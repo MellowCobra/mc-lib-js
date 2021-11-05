@@ -44,7 +44,7 @@ export declare const at: import("./function").AnyFunction;
  * Str.concat("Hello", " ", "world!")     // "Hello world!"
  * ```
  */
-export declare const concat: (...strs: string[]) => string;
+export declare const concat: (...strs: string[]) => string | null;
 /**
  * Check if a string is included as a substring of another string
  *
@@ -72,4 +72,17 @@ export declare const includes: import("./function").AnyFunction;
  * Str.localeCompare('réservé', 'RESERVE')     // 1
  * ```
  */
-export declare const localeCompare: (a: string, b: string, ...args: any[]) => number;
+export declare const localeCompare: (a: string, b: string, ...args: any[]) => number | null;
+/**
+ * Checks if a string ends with the given substring
+ *
+ * @param { string } ref the reference string
+ * @param { string } cmp the comparison string
+ * @returns number indicating whether the reference string comes before or after the comparison string
+ *
+ * Usage:
+ * ```typescript
+ * Str.localeCompare('réservé', 'RESERVE')     // 1
+ * ```
+ */
+export declare const endsWith: import("./function").AnyFunction;

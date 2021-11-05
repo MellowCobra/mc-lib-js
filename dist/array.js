@@ -4,7 +4,7 @@
  * @module Arr
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.filter = exports.reduce = exports.map = exports.first = exports.last = exports.lastItem = exports.isEmptyArray = exports.contains = exports.distinctBy = void 0;
+exports.reverse = exports.reduceRight = exports.push = exports.lastIndexOf = exports.joinWith = exports.join = exports.isArray = exports.indexOf = exports.includes = exports.mapFrom = exports.from = exports.forEach = exports.flatMap = exports.flatTo = exports.flat = exports.findIndex = exports.find = exports.filter = exports.every = exports.concatAll = exports.concat = exports.length = exports.reduce = exports.map = exports.first = exports.last = exports.lastItem = exports.isEmptyArray = exports.contains = exports.distinctBy = void 0;
 const function_1 = require("./function");
 /**
  * Given an array and a field or function determining a unique string, returns a new distinct array.
@@ -172,34 +172,163 @@ exports.first = function_1.curry(function first(...args) {
         return arr[0];
     return arr.slice(0, n);
 });
+// STANDARD METHODS
 // Arr.map
 exports.map = function_1.curry(function map(fn, arr) {
+    if (!exports.isArray(arr))
+        return null;
     return arr.map(fn);
 });
 // Arr.reduce
 exports.reduce = function_1.curry(function reduce(fn, starter, arr) {
+    if (!exports.isArray(arr))
+        return null;
     return arr.reduce(fn, starter);
+});
+// Arr.length
+const length = function length(arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.length;
+};
+exports.length = length;
+// Arr.concat
+exports.concat = function_1.curry(function concat(arr, arr2) {
+    if (!exports.isArray(arr) && !Array.isArray(arr2))
+        return null;
+    const a = exports.isArray(arr) ? arr : [];
+    const b = exports.isArray(arr2) ? arr2 : [];
+    return a.concat(b);
+});
+// Arr.concatAll
+// Does not work with partial application
+const concatAll = function concatAll(...arrs) {
+    if (arrs.length === 0)
+        return null;
+    const nonNullArrs = arrs.filter(a => a != null);
+    return [].concat(...nonNullArrs);
+};
+exports.concatAll = concatAll;
+// Arr.every
+exports.every = function_1.curry(function every(predicate, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.every(predicate);
 });
 // Arr.filter
 exports.filter = function_1.curry(function filter(fn, arr) {
+    if (!exports.isArray(arr))
+        return null;
     return arr.filter(fn);
 });
-// STANDARD METHODS
-// Arr.concat
-// Arr.every
-// Arr.some
 // Arr.find
+exports.find = function_1.curry(function find(fn, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.find(fn);
+});
 // Arr.findIndex
+exports.findIndex = function_1.curry(function find(fn, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.findIndex(fn);
+});
 // Arr.flat
+const flat = function flat(arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return Array.from(arr).flat();
+};
+exports.flat = flat;
+// Arr.flatTo
+exports.flatTo = function_1.curry(function flatTo(to, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return Array.from(arr).flat(to);
+});
+// Arr.flatMap
+exports.flatMap = function_1.curry(function flatMap(fn, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.flatMap(fn);
+});
 // Arr.forEach
+exports.forEach = function_1.curry(function forEach(fn, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.forEach(fn);
+});
+// Arr.from
+const from = function from(arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return Array.from(arr);
+};
+exports.from = from;
+// Arr.mapFrom
+exports.mapFrom = function_1.curry(function mapFrom(fn, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return Array.from(arr, fn);
+});
+// Arr.includes
+exports.includes = function_1.curry(function includes(item, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.includes(item);
+});
+// Arr.indexOf
+exports.indexOf = function_1.curry(function indexOf(item, arr) {
+    if (!Array.isArray(arr))
+        return null;
+    return arr.indexOf(item);
+});
+// Arr.isArray
+exports.isArray = Array.isArray;
 // Arr.join
-// Arr.pop
+const join = function join(arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.join("");
+};
+exports.join = join;
+// Arr.joinWith
+exports.joinWith = function_1.curry(function joinWith(delimiter, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.join(delimiter);
+});
+// Arr.lastIndexOf
+exports.lastIndexOf = function_1.curry(function lastIndexOf(item, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.lastIndexOf(item);
+});
 // Arr.push
-// Arr.reverse
+exports.push = function_1.curry(function push(item, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return [...arr, item];
+});
 // Arr.reduceRight
-// Arr.shift
-// Arr. slice
+exports.reduceRight = function_1.curry(function reduceRight(fn, starter, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.reduceRight(fn, starter);
+});
+// Arr.reverse
+exports.reverse = function_1.curry(function reverse(arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return exports.from(arr).reverse();
+});
+// Arr.slice
+// Arr.some
 // Arr.sort
-// Arr.unshift
 // CUSTOM METHODS
 // Arr.intersection
+//TODO: determine if we should chop these methods
+// They are not functional by nature so probably not gonna do it
+// Arr.pop
+// Arr.shift
+// Arr.unshift

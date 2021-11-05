@@ -83,6 +83,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#at" class="tsd-kind-icon">at</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#concat" class="tsd-kind-icon">concat</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#endsWith" class="tsd-kind-icon">ends<wbr>With</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#includes" class="tsd-kind-icon">includes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#isString" class="tsd-kind-icon">is<wbr>String</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#localeCompare" class="tsd-kind-icon">locale<wbr>Compare</a></li>
@@ -103,7 +104,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/string.ts#L40">string.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/c629f6c/src/string.ts#L40">string.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -135,7 +136,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/string.ts#L66">string.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/c629f6c/src/string.ts#L66">string.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -163,6 +164,38 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="endsWith" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> ends<wbr>With</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">ends<wbr>With<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/c629f6c/src/string.ts#L130">string.ts:130</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if a string ends with the given substring</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>number indicating whether the reference string comes before or after the comparison string</p>
+							<p>Usage:</p>
+							<pre><code class="language-typescript"><span style="color: #E1E4E8">Str.</span><span style="color: #B392F0">localeCompare</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">&#039;réservé&#039;</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">&#039;RESERVE&#039;</span><span style="color: #E1E4E8">)     </span><span style="color: #6A737D">// 1</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="includes" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> includes</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -172,7 +205,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/string.ts#L92">string.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/c629f6c/src/string.ts#L92">string.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,7 +236,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/string.ts#L21">string.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/c629f6c/src/string.ts#L21">string.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -236,7 +269,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/1174c9d/src/string.ts#L112">string.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/c629f6c/src/string.ts#L112">string.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,6 +333,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="Str.html#concat" class="tsd-kind-icon">concat</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#endsWith" class="tsd-kind-icon">ends<wbr>With</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="Str.html#includes" class="tsd-kind-icon">includes</a>

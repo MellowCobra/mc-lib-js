@@ -8,8 +8,6 @@
  * @module Util
  */
 
-import { curry } from "./function"
-
 
 /**
  * Returns `false` if the input value is _exactly_ `null`. 
@@ -97,4 +95,12 @@ export function isNonEmptyString(a: any): boolean {
  */
 export function isEmptyString(a: any): boolean {
   return (typeof a === "string" || a instanceof String) && a.length === 0
+}
+
+export function isIterable(a: any): boolean {
+  if (a === null || a === undefined) {
+    return false
+  }
+
+  return typeof a[Symbol.iterator] === 'function'
 }

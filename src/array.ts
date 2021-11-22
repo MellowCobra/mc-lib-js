@@ -4,6 +4,7 @@
  */
 
 import { curry } from "./function"
+import { isIterable } from "./util"
 
 export type DistinctionFunc<T> = ((item: T, index?: number) => string)
 
@@ -84,6 +85,8 @@ export const isEmptyArray = curry(function isEmptyArray<T>(arr: T[]): boolean {
   if(!Array.isArray(arr)) return true
   return arr.length === 0
 })
+
+
 
 /**
  * Returns the last item in an array, or `null` if the array is empty. 
@@ -262,15 +265,17 @@ export const forEach = curry(function forEach(fn: (...args: any[]) => any, arr: 
   return arr.forEach(fn)
 })
 
+
+
 // Arr.from
-export const from = function from(arr: any[]): any[] {
-  if (!isArray(arr)) return null
+export const from = function from(arr: Iterable<any> | ArrayLike<any>): any[] {
+  if (!isArray(arr) && !isIterable) return null
   return Array.from(arr)
 }
 
 // Arr.mapFrom
-export const mapFrom = curry(function mapFrom(fn: (...args: any[]) => any, arr: any[]): any[] {
-  if (!isArray(arr)) return null
+export const mapFrom = curry(function mapFrom(fn: (...args: any[]) => any, arr: Iterable<any> | ArrayLike<any>): any[] {
+  if (!isArray(arr) && !isIterable) return null
   return Array.from(arr, fn)
 })
 
@@ -326,16 +331,44 @@ export const reverse = curry(function reverse(arr: any[]): any[] {
 })
 
 // Arr.slice
+export const slice = curry(function slice(start: number, end: number, arr: any[]): any[] {
+  if (!isArray(arr)) return null
+  return from(arr.slice(start, end))
+})
+
 // Arr.some
+export const some = curry(function some(predicate: (value: any, index: number, array: any[]) => boolean, arr: any[]): boolean | null {
+  if (!isArray(arr)) return null
+  return arr.some(predicate)
+})
+
 // Arr.sort
+export const sort = function sort(arr: any[]) {
+  if (!isArray(arr)) return null
+  return from(arr).sort()
+}
+
+// Arr.sortBy
+export const sortBy = curry(function sortBy(compareFn: (a: any, b: any) => number, arr: any[]): any[] {
+  if (!isArray(arr)) return null
+  return from(arr).sort(compareFn)
+})
+
 
 // CUSTOM METHODS
 // Arr.intersection
+export const intersection = curry(function intersection(a1: any[], a2: any[]): any[] | null {
+  if (!isArray(a1) && !isArray(a2)) return null
+  if (!isArray(a1) || !isArray(a2)) return []
+
+  const uniqueItems = from(new Set(concat(a1, a2)))
+
+  const map1 = reduce((acc, a) => { acc.set(a, true); return acc }, new Map(), a1)
+  const map2 = reduce((acc, a) => { acc.set(a, true); return acc }, new Map(), a2)
+
+  return filter((a) => map1.has(a) && map2.has(a), uniqueItems)
+})
 
 
-//TODO: determine if we should chop these methods
-// They are not functional by nature so probably not gonna do it
-// Arr.pop
-// Arr.shift
-// Arr.unshift
+// Arr.intersectionBy
 

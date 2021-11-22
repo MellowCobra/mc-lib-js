@@ -576,8 +576,136 @@ describe("Array Module", () => {
     })
   })
 
-  describe("slice", () => {})
-  describe("some", () => {})
-  describe("sort", () => {})
-  describe("splice", () => {})
+  describe("slice", () => {
+    test("returns a new array containing the elements of the first array between indices", () => {
+      expect(Arr.slice(1, 4, [1, 2, 3, 4, 5])).toEqual([2, 3, 4])
+    })
+
+    test("returns an empty array when empty array passed in", () => {
+      expect(Arr.slice(0, 2, [])).toEqual([])
+    })
+
+    test("returns null for null array", () => {
+      expect(Arr.slice(0, 2, null)).toBeNull()
+    })
+
+    test("ignores indices that go past the end of the array", () => {
+      expect(Arr.slice(2, 6, [1, 2, 3, 4])).toEqual([3, 4])
+    })
+
+    test("can be partially applied", () => {
+      const firstThree = Arr.slice(0, 3)
+      expect(firstThree([9,8,7,6,5,4,3,2,1])).toEqual([9, 8, 7])
+    })
+  })
+
+  describe("some", () => {
+    test("returns true if one element matches the condition", () => {
+      const arr = [1, 2, 3, -1, 5]
+      expect(Arr.some((a) => a < 0, arr)).toEqual(true)
+    })
+
+    test("returns true if multiple elements match the condition", () => {
+      const arr = [-1, -2, 4, -5]
+      expect(Arr.some((a) => a < 0, arr)).toEqual(true)
+    })
+
+    test("returns false if no elements match the condition", () => {
+      const arr = [1, 2, 3, 4]
+      expect(Arr.some((a) => a < 0, arr)).toEqual(false)
+    })
+
+    test("returns false if array is empty", () => {
+      expect(Arr.some((a) => a < 0, [])).toEqual(false)
+    })
+
+    test("returns null if null passed in for array", () => {
+      expect(Arr.some((a) => a < 0, null)).toBeNull()
+    })
+
+    test("can be partially applied", () => {
+      const hasOneNegative = Arr.some((a) => a < 0)
+      expect(hasOneNegative([1, 2, 3, -2, 5])).toBe(true)
+    })
+  })
+
+  describe("sort", () => {
+    test("returns new sorted array", () => {
+      expect(Arr.sort([1, 4, -1, 2, 7])).toEqual([-1, 1, 2, 4, 7])
+    })
+
+    test("returns null if null passed in", () => {
+      expect(Arr.sort(null)).toBeNull()
+    })
+  })
+
+  describe("sortBy", () => {
+    const people = [
+      { name: "John", age: 52 },
+      { name: "Sinead", age: 29 },
+      { name: "Martha", age: 35 },
+      { name: "Ronan", age: 8 }
+    ]
+
+    test("returns null for null array", () => {
+      expect(Arr.sortBy((a, b) => a.age - b.age, null)).toBeNull()
+    })
+
+    test("returns a new sorted array using the predicate", () => {
+      expect(Arr.sortBy((a, b) => a.age - b.age, people)).toEqual([
+        { name: "Ronan", age: 8 },
+        { name: "Sinead", age: 29 },
+        { name: "Martha", age: 35 },
+        { name: "John", age: 52 }
+      ])
+    })
+
+    test("can be partially applied", () => {
+      const sortByAge = Arr.sortBy((a, b) => a.age - b.age)
+      expect(sortByAge(people)).toEqual([
+        { name: "Ronan", age: 8 },
+        { name: "Sinead", age: 29 },
+        { name: "Martha", age: 35 },
+        { name: "John", age: 52 }
+      ])
+    })
+  })
+
+  describe("intersection", () => {
+    test("returns empty array if there is no intersection", () => {
+      expect(Arr.intersection([1,2,3], [4,5,6,7])).toEqual([])
+    })
+
+    test("returns empty array if one array is null", () => {
+      expect(Arr.intersection([],null)).toEqual([])
+      expect(Arr.intersection(null,[])).toEqual([])
+    })
+
+    test("returns null when both arrays are invalid", () => {
+      expect(Arr.intersection(null, null)).toBeNull()
+    }) 
+
+    test("returns array with intersected values", () => {
+      expect(Arr.intersection([1,2,3,4], [2,3,4,5])).toEqual([2,3,4])
+    }) 
+  })
+
+  describe("intersectionBy", () => {
+    test("returns empty array if there is no intersection", () => {
+      expect(Arr.intersection([1,2,3], [4,5,6,7])).toEqual([])
+    })
+
+    test("returns empty array if one array is null", () => {
+      expect(Arr.intersection([],null)).toEqual([])
+      expect(Arr.intersection(null,[])).toEqual([])
+    })
+
+    test("returns null when both arrays are invalid", () => {
+      expect(Arr.intersection(null, null)).toBeNull()
+    }) 
+
+    test("returns array with intersected values", () => {
+      expect(Arr.intersection([1,2,3,4], [2,3,4,5])).toEqual([2,3,4])
+    }) 
+  })
 })

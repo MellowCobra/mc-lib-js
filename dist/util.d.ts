@@ -68,3 +68,4 @@ export declare function isNonEmptyString(a: any): boolean;
  * @returns
  */
 export declare function isEmptyString(a: any): boolean;
+export declare function isIterable(a: any): boolean;

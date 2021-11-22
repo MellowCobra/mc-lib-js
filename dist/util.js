@@ -9,7 +9,7 @@
  * @module Util
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isEmptyString = exports.isNonEmptyString = exports.isTrue = exports.notTrue = exports.notTruthy = exports.isFalse = exports.notFalse = exports.notFalsy = exports.notNull = void 0;
+exports.isIterable = exports.isEmptyString = exports.isNonEmptyString = exports.isTrue = exports.notTrue = exports.notTruthy = exports.isFalse = exports.notFalse = exports.notFalsy = exports.notNull = void 0;
 /**
  * Returns `false` if the input value is _exactly_ `null`.
  * Returns `true` for __all__ other values, including `undefined`.
@@ -98,3 +98,10 @@ function isEmptyString(a) {
     return (typeof a === "string" || a instanceof String) && a.length === 0;
 }
 exports.isEmptyString = isEmptyString;
+function isIterable(a) {
+    if (a === null || a === undefined) {
+        return false;
+    }
+    return typeof a[Symbol.iterator] === 'function';
+}
+exports.isIterable = isIterable;

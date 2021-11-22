@@ -4,8 +4,9 @@
  * @module Arr
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reverse = exports.reduceRight = exports.push = exports.lastIndexOf = exports.joinWith = exports.join = exports.isArray = exports.indexOf = exports.includes = exports.mapFrom = exports.from = exports.forEach = exports.flatMap = exports.flatTo = exports.flat = exports.findIndex = exports.find = exports.filter = exports.every = exports.concatAll = exports.concat = exports.length = exports.reduce = exports.map = exports.first = exports.last = exports.lastItem = exports.isEmptyArray = exports.contains = exports.distinctBy = void 0;
+exports.intersection = exports.sortBy = exports.sort = exports.some = exports.slice = exports.reverse = exports.reduceRight = exports.push = exports.lastIndexOf = exports.joinWith = exports.join = exports.isArray = exports.indexOf = exports.includes = exports.mapFrom = exports.from = exports.forEach = exports.flatMap = exports.flatTo = exports.flat = exports.findIndex = exports.find = exports.filter = exports.every = exports.concatAll = exports.concat = exports.length = exports.reduce = exports.map = exports.first = exports.last = exports.lastItem = exports.isEmptyArray = exports.contains = exports.distinctBy = void 0;
 const function_1 = require("./function");
+const util_1 = require("./util");
 /**
  * Given an array and a field or function determining a unique string, returns a new distinct array.
  *
@@ -260,14 +261,14 @@ exports.forEach = function_1.curry(function forEach(fn, arr) {
 });
 // Arr.from
 const from = function from(arr) {
-    if (!exports.isArray(arr))
+    if (!exports.isArray(arr) && !util_1.isIterable)
         return null;
     return Array.from(arr);
 };
 exports.from = from;
 // Arr.mapFrom
 exports.mapFrom = function_1.curry(function mapFrom(fn, arr) {
-    if (!exports.isArray(arr))
+    if (!exports.isArray(arr) && !util_1.isIterable)
         return null;
     return Array.from(arr, fn);
 });
@@ -323,12 +324,40 @@ exports.reverse = function_1.curry(function reverse(arr) {
     return exports.from(arr).reverse();
 });
 // Arr.slice
+exports.slice = function_1.curry(function slice(start, end, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return exports.from(arr.slice(start, end));
+});
 // Arr.some
+exports.some = function_1.curry(function some(predicate, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return arr.some(predicate);
+});
 // Arr.sort
+const sort = function sort(arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return exports.from(arr).sort();
+};
+exports.sort = sort;
+// Arr.sortBy
+exports.sortBy = function_1.curry(function sortBy(compareFn, arr) {
+    if (!exports.isArray(arr))
+        return null;
+    return exports.from(arr).sort(compareFn);
+});
 // CUSTOM METHODS
 // Arr.intersection
-//TODO: determine if we should chop these methods
-// They are not functional by nature so probably not gonna do it
-// Arr.pop
-// Arr.shift
-// Arr.unshift
+exports.intersection = function_1.curry(function intersection(a1, a2) {
+    if (!exports.isArray(a1) && !exports.isArray(a2))
+        return null;
+    if (!exports.isArray(a1) || !exports.isArray(a2))
+        return [];
+    const uniqueItems = exports.from(new Set(exports.concat(a1, a2)));
+    const map1 = exports.reduce((acc, a) => { acc.set(a, true); return acc; }, new Map(), a1);
+    const map2 = exports.reduce((acc, a) => { acc.set(a, true); return acc; }, new Map(), a2);
+    return exports.filter((a) => map1.has(a) && map2.has(a), uniqueItems);
+});
+// Arr.intersectionBy

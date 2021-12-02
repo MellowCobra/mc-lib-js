@@ -87,6 +87,14 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#includes" class="tsd-kind-icon">includes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#isString" class="tsd-kind-icon">is<wbr>String</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#localeCompare" class="tsd-kind-icon">locale<wbr>Compare</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#match" class="tsd-kind-icon">match</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#slice" class="tsd-kind-icon">slice</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#split" class="tsd-kind-icon">split</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#toLocaleLowerCase" class="tsd-kind-icon">to<wbr>Locale<wbr>Lower<wbr>Case</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#toLocaleUpperCase" class="tsd-kind-icon">to<wbr>Locale<wbr>Upper<wbr>Case</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#toLowerCase" class="tsd-kind-icon">to<wbr>Lower<wbr>Case</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#toUpperCase" class="tsd-kind-icon">to<wbr>Upper<wbr>Case</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="Str.html#trim" class="tsd-kind-icon">trim</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,7 +112,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2cc3746/src/string.ts#L40">string.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L40">string.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -136,7 +144,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2cc3746/src/string.ts#L66">string.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L66">string.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -173,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2cc3746/src/string.ts#L130">string.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L130">string.ts:130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -205,7 +213,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2cc3746/src/string.ts#L92">string.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L92">string.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -236,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2cc3746/src/string.ts#L21">string.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L21">string.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/2cc3746/src/string.ts#L112">string.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L112">string.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -295,6 +303,190 @@
 							<p>Usage:</p>
 							<pre><code class="language-typescript"><span style="color: #E1E4E8">Str.</span><span style="color: #B392F0">localeCompare</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">&#039;réservé&#039;</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">&#039;RESERVE&#039;</span><span style="color: #E1E4E8">)     </span><span style="color: #6A737D">// 1</span>
 </code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="match" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> match</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">match<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L142">string.ts:142</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="slice" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> slice</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">slice<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L148">string.ts:148</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="split" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> split</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">split<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L136">string.ts:136</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="toLocaleLowerCase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> to<wbr>Locale<wbr>Lower<wbr>Case</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Locale<wbr>Lower<wbr>Case<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L154">string.ts:154</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="toLocaleUpperCase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> to<wbr>Locale<wbr>Upper<wbr>Case</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Locale<wbr>Upper<wbr>Case<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L160">string.ts:160</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="toLowerCase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> to<wbr>Lower<wbr>Case</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Lower<wbr>Case<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L166">string.ts:166</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="toUpperCase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> to<wbr>Upper<wbr>Case</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Upper<wbr>Case<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L172">string.ts:172</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="trim" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> trim</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">trim<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/MellowCobra/mc-lib-js/blob/455855b/src/string.ts#L178">string.ts:178</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -345,6 +537,30 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="Str.html#localeCompare" class="tsd-kind-icon">locale<wbr>Compare</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#match" class="tsd-kind-icon">match</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#slice" class="tsd-kind-icon">slice</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#split" class="tsd-kind-icon">split</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#toLocaleLowerCase" class="tsd-kind-icon">to<wbr>Locale<wbr>Lower<wbr>Case</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#toLocaleUpperCase" class="tsd-kind-icon">to<wbr>Locale<wbr>Upper<wbr>Case</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#toLowerCase" class="tsd-kind-icon">to<wbr>Lower<wbr>Case</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#toUpperCase" class="tsd-kind-icon">to<wbr>Upper<wbr>Case</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="Str.html#trim" class="tsd-kind-icon">trim</a>
 					</li>
 				</ul>
 			</nav>

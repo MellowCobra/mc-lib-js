@@ -132,3 +132,51 @@ export const localeCompare = function localeCompare(a: string, b: string, ...arg
 
   return str.endsWith(cmp)
 })
+
+export const split = curry(function split(separator: string, str: string): string[] | null {
+  if (!isString(str)) return null
+
+  return str.split(separator)
+})
+
+export const match = curry(function match(regexp: RegExp, str: string): string[] | null {
+  if (!isString(str)) return null
+
+  return str.match(regexp)
+})
+
+export const slice = curry(function slice(start: number, end: number, str: string): string | null {
+  if (!isString(str)) return null
+
+  return str.slice(start, end)
+})
+
+export const toLocaleLowerCase = curry(function toLocaleLowerCase(str: string): string | null {
+  if (!isString(str)) return null
+
+  return str.toLocaleLowerCase()
+})
+
+export const toLocaleUpperCase = curry(function toLocaleUpperCase(str: string): string | null {
+  if (!isString(str)) return null
+
+  return str.toLocaleUpperCase()
+})
+
+export const toLowerCase = curry(function toLowerCase(str: string): string | null {
+  if (!isString(str)) return null
+
+  return str.toLowerCase()
+})
+
+export const toUpperCase = curry(function toUpperCase(str: string): string | null {
+  if (!isString(str)) return null
+
+  return str.toUpperCase()
+})
+
+export const trim = curry(function trim(str: string): string | null {
+  if (!isString(str)) return null
+
+  return str.trim()
+})

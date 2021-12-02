@@ -86,3 +86,11 @@ export declare const localeCompare: (a: string, b: string, ...args: any[]) => nu
  * ```
  */
 export declare const endsWith: import("./function").AnyFunction;
+export declare const split: import("./function").AnyFunction;
+export declare const match: import("./function").AnyFunction;
+export declare const slice: import("./function").AnyFunction;
+export declare const toLocaleLowerCase: import("./function").AnyFunction;
+export declare const toLocaleUpperCase: import("./function").AnyFunction;
+export declare const toLowerCase: import("./function").AnyFunction;
+export declare const toUpperCase: import("./function").AnyFunction;
+export declare const trim: import("./function").AnyFunction;

@@ -4,7 +4,7 @@
  * @module Str
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.endsWith = exports.localeCompare = exports.includes = exports.concat = exports.at = exports.isString = void 0;
+exports.trim = exports.toUpperCase = exports.toLowerCase = exports.toLocaleUpperCase = exports.toLocaleLowerCase = exports.slice = exports.match = exports.split = exports.endsWith = exports.localeCompare = exports.includes = exports.concat = exports.at = exports.isString = void 0;
 const function_1 = require("./function");
 /**
 * Indicates if value is a string or an instance of String
@@ -127,4 +127,44 @@ exports.endsWith = function_1.curry(function endsWith(cmp, str) {
     if (!exports.isString(str) || !exports.isString(cmp))
         return null;
     return str.endsWith(cmp);
+});
+exports.split = function_1.curry(function split(separator, str) {
+    if (!exports.isString(str))
+        return null;
+    return str.split(separator);
+});
+exports.match = function_1.curry(function match(regexp, str) {
+    if (!exports.isString(str))
+        return null;
+    return str.match(regexp);
+});
+exports.slice = function_1.curry(function slice(start, end, str) {
+    if (!exports.isString(str))
+        return null;
+    return str.slice(start, end);
+});
+exports.toLocaleLowerCase = function_1.curry(function toLocaleLowerCase(str) {
+    if (!exports.isString(str))
+        return null;
+    return str.toLocaleLowerCase();
+});
+exports.toLocaleUpperCase = function_1.curry(function toLocaleUpperCase(str) {
+    if (!exports.isString(str))
+        return null;
+    return str.toLocaleUpperCase();
+});
+exports.toLowerCase = function_1.curry(function toLowerCase(str) {
+    if (!exports.isString(str))
+        return null;
+    return str.toLowerCase();
+});
+exports.toUpperCase = function_1.curry(function toUpperCase(str) {
+    if (!exports.isString(str))
+        return null;
+    return str.toUpperCase();
+});
+exports.trim = function_1.curry(function trim(str) {
+    if (!exports.isString(str))
+        return null;
+    return str.trim();
 });
